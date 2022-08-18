@@ -1,0 +1,36 @@
+﻿@{
+    string[] menus = { "Index", "About", "Projects", "Contact","FeverCheck", "GuessingGame", "GetSession"};
+
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <header class="header">
+        <nav>
+            <ul>
+                @foreach (var menu in menus)
+                {
+                    <li>
+                        <a href=@menu>@menu</a>
+                    </li>
+
+                }
+            </ul>
+        </nav>
+    </header>
+    <main>
+        @RenderBody()
+    </main>
+</body>
+<footer>
+    <span>Created by Danielle Andersson &copy;</span><span>@DateTime.Now.Year</span>
+</footer>
+</html>
+

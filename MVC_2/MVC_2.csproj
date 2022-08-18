@@ -6,4 +6,30 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Controllers\" />
+    <None Remove="TextFiles\" />
+    <None Remove="Models\" />
+    <None Remove="Views\" />
+    <None Remove="Views\Home\" />
+    <None Remove="Views\Shared\" />
+    <None Remove="Views\Doctor\" />
+    <None Remove="Views\GuessingGame\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+    <Folder Include="wwwroot\" />
+    <Folder Include="TextFiles\" />
+    <Folder Include="Models\" />
+    <Folder Include="Views\" />
+    <Folder Include="Views\Home\" />
+    <Folder Include="Views\Shared\" />
+    <Folder Include="wwwroot\css\" />
+    <Folder Include="Views\Doctor\" />
+    <Folder Include="Views\GuessingGame\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\" />
+    <Content Remove="wwwroot\css\" />
+  </ItemGroup>
 </Project>

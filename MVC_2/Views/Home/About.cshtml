@@ -1,0 +1,55 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+
+@{
+    var projects = new Dictionary<string, string>()
+{
+        {"2018 - 2021 ", "Föräldraledig" },
+        {"2017 - Model Driven Software Development (MDSD)","Creating models for a hotel system and translating these models into executable\n- (UML diagrams: state machine diagrams, components and classes diagrams - Refinement of the system\n- Developing Test cases\n- Programming language: Java)." },
+        {"2016 - Project Embedded Systems", "Creating a mini autonomous car using an arduino and an odroid which can follow a lane, overtake and park. Among other components, the mini vehicle had two ultrasonic sensors in the front, two infrared sensors on the right side and one on the back. Furthermore there was a camera in the mini vehicle.\n- (UML diagrams: classes diagrams, components diagrams, sequence charts, state machines - Algorithms for parallel parking\n- Test cases\n- Programming languages: C and C++)."},
+        {"2015 - Project Software Architecture for Distributed Systems", "The requirement for this project was to develop a social computing application that analyzes social network data.\n- (Requirements gathering\n- Architectural drivers\n- Modeling UML diagrams: Architectural views, logical view, architectural layer\ndependencies, implementation view, process view, deployment view\n- Modeling and development of the database\n- Algorithms for requesting data from the database\n- Algorithms for continuously saving data from the social media in the database\n- Programming languages: Java and Erlang)."},
+        {"2015 - Project Systems Development", "Design and develop an android app that provides added value for drivers and is safe to use while driving. The app integrates the Automotive Grade Android (AGA) enabling interaction with vehicle signals.\n- (Requirements gathering\n- Requirements documentation - User stories (Backlog)\n- Use cases\n- UML diagrams\n- Coding for back end and front end - Testing and Debug\n- Refactoring\n- Programming language: Java)."},
+        {"2014 - Project Development of a Decision Support System (DSS)", "\nDeveloped a driving logbook decision support system for companies.\n- (Functional and non-functional requirements - Backlog\n- Database\n- Developed the database\n- UI development\n- Programming language: Java)." }
+    };
+
+    string file = @"TextFiles/kunskaper.txt";
+    string[] skills = System.IO.File.ReadAllLines(file);
+
+}
+
+<main>
+    <h2>@ViewBag.Title</h2>
+    <div>
+        <h3>EXPERIENCE FROM PROJECTS</h3>
+        <ul>
+
+            @foreach (var project in projects)
+            {
+                <li>
+                    <h3>@project.Key</h3>
+                    <ul>
+                        <li>@project.Value</li>
+                    </ul>
+                </li>
+
+            }
+        </ul>
+    </div>
+    <div>
+        <h3>TECHNICAL SKILLS</h3>
+        <ul>
+            @foreach (string item in skills)
+            {
+                <li>@item</li>
+            }
+        </ul>
+    </div>
+    <div>
+        <h3>EDUCATION</h3>
+        <p>2022 - Pågående - .Net Programmerare/Systemutvecklare - Lexicon Yrkesutbildning i Väst</p>
+        <p>2022 - 2022 - Introduction to Artificial Intelligence - Luleå University</p>
+        <p>2022 - 2022 - Robotics - Luleå University</p>
+        <p>2014 - 2017 Software Engineering and Management bachelor - University of Gothenburg</p>
+    </div>
+</main>

@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "Projects";
+}
+
+@{
+    var projects = new Dictionary<string, string>()
+{
+        {"Hangman","Guess a word. The word to guess is represented by a row of dashes where each dash represents a letter in the word. " },
+        {"Vending Machine", " A vending machine which can take requests from the user as to what product it is supposed to return. It can also take payment, and send the product back to the user with an appropriate amount of change."},
+        {"Basic Html page", "Creation of a complete HTML page and styling it using CSS. "},
+        {"Sokoban", "Sokoban game in JavaScript."}
+    };
+
+    var links = new Dictionary<string, string>()
+{
+        {"Hangman", "https://github.com/DaniAnders/ConsoleHangman.git" },
+        {"Vending Machine", "https://github.com/DaniAnders/VendingMachine.git" },
+        {"Basic Html page", "https://github.com/DaniAnders/FrontEnd_Assignment2.git" },
+        {"Sokoban", "https://github.com/DaniAnders/Sokoban.git" },
+
+    };
+
+}
+
+<main>
+    <h2>@ViewBag.Title</h2>
+    <ul>
+        @foreach (var project in projects)
+        {
+            <li>
+                <h3>@project.Key</h3>
+                <p>@project.Value</p>
+                <a href=@links.GetValueOrDefault(project.Key) target="_blank">Github link</a>
+            </li>
+
+        }
+
+    </ul>
+</main>
+

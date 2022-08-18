@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Guess a number";
+}
+
+
+<main>
+    <h2>@ViewBag.Title</h2>
+    <form asp-action="GuessingGame" method="post" class="form">
+        <fieldset>
+            <div>
+                <label for="input"><strong>Please, enter your guess:</strong></label>
+                <input type="text" id="input" name="guess">
+            </div>
+            <button id="submit" type="submit" onclick="alert('Successfully submitted!')">Submit</button>
+            @{
+                <p>@ViewBag.Message</p>
+            }
+        </fieldset>
+    </form>
+    <div>
+        @{
+            <p>@ViewBag.Counter</p>
+        }
+    </div>
+</main>

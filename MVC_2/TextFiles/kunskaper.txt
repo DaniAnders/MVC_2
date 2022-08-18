@@ -1,0 +1,19 @@
+﻿Programming Languages: C, C++, Java, Python, Erlang, Sql
+Shell Scripting
+Databases: MySQL, Oracle, Non Relational Databases
+Platforms: Windows, Linux
+Android Development
+Software Architecture
+Software Testing
+Automated Testing
+MATLAB
+Test Driven Development (TDD)
+Model Driven Software Development
+Distributed Fault-Tolerant Programming
+Software Processes
+Artificial Intelligence
+Statistical Analysis
+R statistics
+Agile Software Development
+Scrum
+ISO 26262

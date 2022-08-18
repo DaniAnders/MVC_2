@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+
+
+@{
+    string name = "Danielle Andersson";
+    string email = "mailto: serafim.andersson.danielle@gmail.com";
+    string git = "https://github.com/DaniAnders";
+
+}
+
+
+<main>
+    <h2>@ViewBag.Title</h2>
+    <address>
+        <p>@name</p>
+        <p>Email: <a href=@email>@email</a> </p>
+        <p>Git: <a href=@git>@git</a> </p>
+    </address>
+</main>
