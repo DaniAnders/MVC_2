@@ -32,8 +32,16 @@ namespace MVC_2.Controllers
         [HttpPost]
         public IActionResult GuessingGame(string guess)
         {
-            
-            ViewBag.Message = Game.Guess(guess);
+            if (Game.Win)
+            {
+                Game.RandomNumber = Game.GetRandomNumber();
+                string random = Game.RandomNumber.ToString();
+                HttpContext.Session.SetString("session", random);
+            }
+            else
+            {
+                ViewBag.Message = Game.Guess(guess);
+            }
             return View();
         } 
 

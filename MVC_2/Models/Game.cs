@@ -29,13 +29,13 @@ namespace MVC_2.Models
             {
                 Result = "Error! Invalid Value.";
             }
-            if(guess_ < 1 || guess_ > 100)
+            if (guess_ < 1 || guess_ > 100)
             {
                 Result = "The number you try to guess is between (1 to 100)";
             }
             else
             {
-               if (guess_ == RandomNumber)
+                if (guess_ == RandomNumber)
                 {
                     Result = $"Congratulations you won!!! Attempts: {Attempts}";
                     Win = true;
@@ -54,8 +54,8 @@ namespace MVC_2.Models
                     }
                     Attempts++;
                 }
-                
-             }
+            }
+
             return Result;
         }
     }

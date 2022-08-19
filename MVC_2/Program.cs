@@ -16,7 +16,6 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-
 app.MapControllerRoute(
     name: "guessinggame",
     pattern: "guessinggame",
