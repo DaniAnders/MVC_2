@@ -16,6 +16,18 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+
+app.MapControllerRoute(
+    name: "guessinggame",
+    pattern: "guessinggame",
+    defaults: new { controller = "GuessingGame", action = "GuessingGame" });
+
+
+app.MapControllerRoute(
+    name: "getsession",
+    pattern: "getsession",
+    defaults: new { controller = "GuessingGame", action = "GetSession" });
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
@@ -48,17 +60,6 @@ app.MapControllerRoute(
     name: "fevercheck",
     pattern: "fevercheck",
     defaults: new { controller = "Doctor", action = "FeverCheck" });
-
-app.MapControllerRoute(
-    name: "guessinggame",
-    pattern: "guessinggame",
-    defaults: new { controller = "GuessingGame", action = "GuessingGame" });
-
-
-app.MapControllerRoute(
-    name: "getsession",
-    pattern: "getsession",
-    defaults: new { controller = "GuessingGame", action = "GetSession" });
 
 
 app.Run();
