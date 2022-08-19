@@ -22,6 +22,7 @@ namespace MVC_2.Controllers
             }
             else
             {
+                Game.RandomNumber = int.Parse(HttpContext.Session.GetString("session"));
                 ViewBag.Message = "Session is still alive. ";
             }
             return View();

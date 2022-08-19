@@ -28,7 +28,12 @@ namespace MVC_2.Models
             if (string.IsNullOrEmpty(guess))
             {
                 Result = "Error! Invalid Value.";
-            }else
+            }
+            if(guess_ < 1 || guess_ > 100)
+            {
+                Result = "The number you try to guess is between (1 to 100)";
+            }
+            else
             {
                if (guess_ == RandomNumber)
                 {
