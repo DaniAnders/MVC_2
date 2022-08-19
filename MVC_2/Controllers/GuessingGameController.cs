@@ -34,6 +34,7 @@ namespace MVC_2.Controllers
         {
             if (Game.Win)
             {
+                /* Generating a new number if the player has won */
                 Game.RandomNumber = Game.GetRandomNumber();
                 string random = Game.RandomNumber.ToString();
                 HttpContext.Session.SetString("session", random);

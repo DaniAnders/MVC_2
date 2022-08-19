@@ -16,4 +16,3 @@ Statistical Analysis
 R statistics
 Agile Software Development
 Scrum
-ISO 26262
