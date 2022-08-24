@@ -17,6 +17,22 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.MapControllerRoute(
+    name: "delete",
+    pattern: "delete",
+    defaults: new { controller = "People", action = "Delete" });
+
+
+app.MapControllerRoute(
+    name: "create",
+    pattern: "create",
+    defaults: new { controller = "People", action = "Create" });
+
+app.MapControllerRoute(
+    name: "people",
+    pattern: "people",
+    defaults: new { controller = "People", action = "People" });
+
+app.MapControllerRoute(
     name: "guessinggame",
     pattern: "guessinggame",
     defaults: new { controller = "GuessingGame", action = "GuessingGame" });

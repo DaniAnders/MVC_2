@@ -1,0 +1,32 @@
+﻿@model MVC_2.ViewModels.CreatePersonViewModel
+
+
+<main>
+
+    <div>
+
+
+        <h3>Add a new user</h3>
+        <form asp-controller="People" asp-action="Create" method="post">
+            <fieldset>
+                <div>
+                    <label asp-for="Name"></label>
+                    <input class="form-input" asp-for="Name">
+                    <span asp-validation-for="Name" > </span>
+                </div>
+                <div>
+                    <label asp-for="Phone"></label>
+                    <input class="form-input" asp-for="Phone">
+                    <span asp-validation-for="Phone"> </span>
+                </div>
+                <div>
+                    <label asp-for="City"></label>
+                    <input class="form-input" asp-for="City">
+                    <span asp-validation-for="City"> </span>
+                </div>
+                <button id="submit" type="submit">Save</button>
+            </fieldset>
+        </form>
+
+    </div>
+</main>

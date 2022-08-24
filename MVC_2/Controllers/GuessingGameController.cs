@@ -13,7 +13,7 @@ namespace MVC_2.Controllers
         public IActionResult GuessingGame()
         {  
             bool sessionIsNull= string.IsNullOrEmpty(HttpContext.Session.GetString("session"));
-            if(sessionIsNull)
+            if (sessionIsNull)
             {
                 Game.RandomNumber = Game.GetRandomNumber();
                 string random = Game.RandomNumber.ToString();
@@ -42,17 +42,17 @@ namespace MVC_2.Controllers
             else
             {
                 ViewBag.Message = Game.Guess(guess);
+       
             }
             return View();
         } 
-
       
         public IActionResult GetSession()
         {
             ViewBag.Message = HttpContext.Session.GetString("session");
             return View();
         }
-
+   
 
     }
 }
