@@ -14,7 +14,7 @@ namespace MVC_2.Controllers
     {
    
         PeopleViewModel model = new PeopleViewModel();
-
+       
         // GET:
         public IActionResult People()
         {
@@ -59,8 +59,8 @@ namespace MVC_2.Controllers
         [HttpPost]
         public IActionResult People(string search)
         {
-            
-            model.Persons = UserData.Search(search);
+
+            model.Persons = UserData.SearchByNameOrCity(search);
             return View(model);
         }
 

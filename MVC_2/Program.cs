@@ -16,6 +16,13 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+
+app.MapControllerRoute(
+    name: "ajax",
+    pattern: "ajax",
+    defaults: new { controller = "Ajax", action = "Ajax" });
+
+
 app.MapControllerRoute(
     name: "delete",
     pattern: "delete",
@@ -53,11 +60,6 @@ app.MapControllerRoute(
     pattern: "index",
     defaults: new { controller = "Home", action = "Index" });
 
-
-app.MapControllerRoute(
-    name: "about",
-    pattern: "about",
-    defaults: new { controller = "Home", action = "About" });
 
 
 app.MapControllerRoute(

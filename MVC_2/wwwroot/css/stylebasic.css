@@ -35,6 +35,11 @@ nav a {
     color: white;
 }
 
+#bt {
+    display: flex;
+    flex-direction: row;
+}
+
 
 footer {
     width: 100%;

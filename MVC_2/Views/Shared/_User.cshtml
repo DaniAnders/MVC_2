@@ -1,0 +1,38 @@
+﻿
+@model MVC_2.ViewModels.PeopleViewModel
+
+
+@{
+    string[] headers = { "ID", "Name", "Phone", "City" };
+}
+
+<main>
+    <h4>Partial View - User Details</h4>
+
+    <div>    
+      <table>
+            <tr>
+             @if (Model.Persons.Count != 0)
+             {
+              @foreach (var header in headers)
+              {
+                <th>@header</th>
+              }
+
+              }
+            </tr>
+            @if (Model.Persons.Count != 0)
+            {
+            @foreach (var person in Model.Persons)
+            {
+             <tr>
+               <td>@person.PersonId</td>
+               <td>@person.Name</td>
+               <td>@person.Phone</td>
+               <td>@person.City</td>
+             </tr>
+             }
+            }
+      </table>
+    </div>
+</main>

@@ -19,6 +19,9 @@
     <None Remove="ViewModels\" />
     <None Remove="bootstrap" />
     <None Remove="Data\" />
+    <None Remove="jQuery" />
+    <None Remove="jQuery.Validation" />
+    <None Remove="Views\Ajax\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
@@ -28,18 +31,19 @@
     <Folder Include="Views\" />
     <Folder Include="Views\Home\" />
     <Folder Include="Views\Shared\" />
-    <Folder Include="wwwroot\css\" />
     <Folder Include="Views\Doctor\" />
     <Folder Include="Views\GuessingGame\" />
     <Folder Include="Views\People\" />
     <Folder Include="ViewModels\" />
     <Folder Include="Data\" />
+    <Folder Include="Views\Ajax\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />
-    <Content Remove="wwwroot\css\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="bootstrap" Version="5.1.3" />
+    <PackageReference Include="jQuery" Version="3.6.0" />
+    <PackageReference Include="jQuery.Validation" Version="1.19.5" />
   </ItemGroup>
 </Project>

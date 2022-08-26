@@ -1,5 +1,5 @@
 ﻿@{
-    string[] menus = { "Index", "About", "Projects", "Contact","FeverCheck", "GuessingGame", "GetSession", "People"};
+    string[] menus = { "Index", "Projects", "Contact","FeverCheck", "GuessingGame", "GetSession", "People", "Ajax"};
 
 }
 
@@ -8,7 +8,9 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/stylebasic.css" asp-append-version="true" />
     <title>@ViewBag.Title</title>
 </head>
 <body>
@@ -28,6 +30,9 @@
     <main>
         @RenderBody()
     </main>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
 </body>
 <footer>
     <span>Created by Danielle Andersson &copy;</span><span>@DateTime.Now.Year</span>

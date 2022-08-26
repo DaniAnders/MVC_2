@@ -11,8 +11,18 @@ namespace MVC_2.Models
 
         public Person()
         {
+            
             PersonId = nextId;
             nextId++;
+        }
+
+        public Person(string name, string phone, string city)
+        {
+            this.Name = name;
+            this.Phone = phone;
+            this.City = city;
+     
+
         }
 
 

@@ -1,0 +1,24 @@
+﻿@model MVC_2.ViewModels.PeopleViewModel
+
+<main>
+    <div>
+        <button onclick="ListPeople()" id="list" type="submit">People List</button>
+    </div>
+    <div>
+        <input type="text" id="id" name="id">
+    </div>
+
+    <div id="bt">
+       <div>
+        <button onclick="DetailsById()" id="details" type="submit">Details</button>
+       </div>
+
+        <div>
+        <button onclick="DeleteById()" id="delete" type="submit">Delete</button>
+       </div>
+    </div>
+
+
+    <div id="div-partial"> </div>
+    <div id="message"></div>
+</main>
