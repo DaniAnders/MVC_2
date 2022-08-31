@@ -22,6 +22,12 @@
     <None Remove="jQuery" />
     <None Remove="jQuery.Validation" />
     <None Remove="Views\Ajax\" />
+    <None Remove="Microsoft.EntityFrameworkCore" />
+    <None Remove="Microsoft.EntityFrameworkCore.SqlServer" />
+    <None Remove="Microsoft.EntityFrameworkCore.Tools" />
+    <None Remove="NuGet.PackageManagement" />
+    <None Remove="Views\People_\" />
+    <None Remove="Views\Cities\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
@@ -37,6 +43,8 @@
     <Folder Include="ViewModels\" />
     <Folder Include="Data\" />
     <Folder Include="Views\Ajax\" />
+    <Folder Include="Views\People_\" />
+    <Folder Include="Views\Cities\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />
@@ -45,5 +53,12 @@
     <PackageReference Include="bootstrap" Version="5.1.3" />
     <PackageReference Include="jQuery" Version="3.6.0" />
     <PackageReference Include="jQuery.Validation" Version="1.19.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.8">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="NuGet.PackageManagement" Version="6.3.0" />
   </ItemGroup>
 </Project>

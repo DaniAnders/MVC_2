@@ -11,8 +11,11 @@ namespace MVC_2.ViewModels
         public string Description { get; set; }
         //public CreatePersonViewModel CreatePerson { get; set; }
         public List<Person> Persons { get; set; }
+        public List<Person_> People_ { get; set; }
+        public List<Country> Countries { get; set; }
+        public List<City> Cities { get; set; }
 
-       
+
         public PeopleViewModel()
         {
         }

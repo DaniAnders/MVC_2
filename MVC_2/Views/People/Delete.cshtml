@@ -1,11 +1,10 @@
-﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-@model MVC_2.ViewModels.PeopleViewModel
+﻿
+@model PeopleViewModel
 
 @{
     string[] headers = { "ID", "Name", "Phone", "City", "CheckBox" };
 }
 
-<main>
 
     <div>
         <form asp-controller="People" asp-action="Delete" method="post">
@@ -53,4 +52,4 @@
         </form>
 
     </div>
-</main>
+

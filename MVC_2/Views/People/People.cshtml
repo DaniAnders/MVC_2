@@ -1,13 +1,13 @@
-﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-@model MVC_2.ViewModels.PeopleViewModel
+﻿
+@model PeopleViewModel
 
 
 @{
-    string[] headers = { "ID", "Name", "Phone", "City"};
+    string[] headers = { "ID", "Name", "Phone", "City" };
 }
 
 
-<main>
+
     <h2>@Model.Title</h2>
     <h4>@Model.Description</h4>
 
@@ -29,18 +29,27 @@
             </form>
 
             <div>
+                <div>
+                    <label>Sort table</label>
+                    <select id="sort">
+                        <option selected disabled value="">Order by</option>
+                        <option value="name">Name</option>
+                        <option value="city">City</option>
+                    </select>
+
+                </div>
                 <form asp-controller="People" asp-action="Delete" method="post">
                     <table>
                         <tr>
 
-                       @if (Model.Persons.Count != 0)
-                       {
-                           @foreach (var header in headers)
-                           {
+                            @if (Model.Persons.Count != 0)
+                            {
+                                @foreach (var header in headers)
+                                {
                                     <th>@header</th>
-                           }
+                                }
 
-                        }
+                            }
                         </tr>
 
                         @if (Model.Persons.Count != 0)
@@ -54,18 +63,16 @@
                                     <td>@person.City</td>
                                 </tr>
                             }
-                   
+
                         }
 
                     </table>
                     @if (Model.Persons.Count != 0)
-                     {
+                    {
                         <p> <a href="/People/Delete"> Delete from list </a> </p>
-                     }
-                </form>        
+                    }
+                </form>
             </div>
         </div>
-        
-    </div>
 
-</main>
+    </div>

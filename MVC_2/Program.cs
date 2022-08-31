@@ -1,4 +1,7 @@
-﻿var builder = WebApplication.CreateBuilder(args);
+﻿using Microsoft.EntityFrameworkCore;
+using MVC_2.Data;
+
+var builder = WebApplication.CreateBuilder(args);
 
 /* services mvc */
 builder.Services.AddMvc();
@@ -6,6 +9,13 @@ builder.Services.AddMvc();
 builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromMinutes(1);
+});
+
+/* Adding Db context */
+builder.Services.AddDbContext<ApplicationDBContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+
 });
 
 
@@ -16,6 +26,22 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+
+app.MapControllerRoute(
+    name: "cities",
+    pattern: "cities",
+    defaults: new { controller = "Cities", action = "Cities" });
+
+
+app.MapControllerRoute(
+    name: "countries",
+    pattern: "countries",
+    defaults: new { controller = "Countries", action = "Countries" });
+
+app.MapControllerRoute(
+    name: "people_",
+    pattern: "people_",
+    defaults: new { controller = "People_", action = "People_" });
 
 app.MapControllerRoute(
     name: "ajax",
@@ -67,11 +93,6 @@ app.MapControllerRoute(
     pattern: "projects",
     defaults: new { controller = "Home", action = "Projects" });
 
-
-app.MapControllerRoute(
-    name: "contact",
-    pattern: "contact",
-    defaults: new { controller = "Home", action = "contact" });
 
 app.MapControllerRoute(
     name: "fevercheck",

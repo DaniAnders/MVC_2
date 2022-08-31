@@ -1,0 +1,29 @@
+﻿@model PeopleViewModel
+
+<div>
+
+    @if (Model.Cities.Count != 0)
+    {
+        @foreach (var city in Model.Cities)
+        {
+
+
+            <div class="row">
+                <div class="col">
+                    @city.Id
+                </div>
+                <div class="col">
+                    @city.CityName
+                </div>
+                <div class="col">
+                    @city.CountryId
+                </div>
+                <div class="col">
+                    @city.Country
+                </div>
+            </div>
+
+
+        }
+    }
+</div>

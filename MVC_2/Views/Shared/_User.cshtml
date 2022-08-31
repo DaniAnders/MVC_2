@@ -1,37 +1,47 @@
-﻿@model MVC_2.ViewModels.PeopleViewModel
+﻿@model PeopleViewModel
 
 
 @{
     string[] headers = { "ID", "Name", "Phone", "City" };
 }
 
-<main>
     <h4>Partial View - User Details</h4>
 
-    <div>
-        <table>
-            <tr>
-                @if (Model.Persons.Count != 0)
-                {
-                    @foreach (var header in headers)
-                    {
-                        <th>@header</th>
-                    }
-
-                }
-            </tr>
+    <div class="container">
+        <div class="row">
             @if (Model.Persons.Count != 0)
             {
-                @foreach (var person in Model.Persons)
+                @foreach (var header in headers)
                 {
-                    <tr>
-                        <td>@person.PersonId</td>
-                        <td>@person.Name</td>
-                        <td>@person.Phone</td>
-                        <td>@person.City</td>
-                    </tr>
+                    <div class="col-sm">
+                        @header
+                    </div>
                 }
             }
-        </table>
+            @if (Model.Persons.Count != 0)
+            {
+    
+
+                @foreach (var person in Model.Persons)
+                {
+
+                    <div class="row">
+                        <div class="col">
+                            @person.PersonId
+                        </div>
+                        <div class="col">
+                            @person.Name
+                        </div>
+                        <div class="col">
+                            @person.Phone
+                        </div>
+                        <div class="col">
+                            @person.City
+                        </div>
+                    </div>
+
+                }
+            }
+
+        </div>
     </div>
-</main>
