@@ -1,0 +1,23 @@
+﻿@model PeopleViewModel
+
+<div>
+
+    @if (Model.Languages.Count != 0)
+    {
+        @foreach (var language in Model.Languages)
+        {
+
+
+            <div class="row">
+                <div class="col">
+                    @language.Id
+                </div>
+                <div class="col">
+                    @language.LanguageName
+                </div>    
+            </div>
+
+
+        }
+    }
+</div>

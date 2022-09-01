@@ -11,6 +11,7 @@ namespace MVC_2.Models
         public string Phone { get; set; }
         public City City { get; set; }
         public int CityId { get; set; }
+        public List<Language> Languages { get; set; } = new List<Language>();
         
 
         public Person_()

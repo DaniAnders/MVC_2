@@ -26,6 +26,11 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.MapControllerRoute(
+    name: "languages",
+    pattern: "languages",
+    defaults: new { controller = "Languages", action = "Languages" });
+
 
 app.MapControllerRoute(
     name: "cities",

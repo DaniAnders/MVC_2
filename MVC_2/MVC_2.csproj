@@ -28,6 +28,7 @@
     <None Remove="NuGet.PackageManagement" />
     <None Remove="Views\People_\" />
     <None Remove="Views\Cities\" />
+    <None Remove="Views\Languages\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
@@ -45,6 +46,7 @@
     <Folder Include="Views\Ajax\" />
     <Folder Include="Views\People_\" />
     <Folder Include="Views\Cities\" />
+    <Folder Include="Views\Languages\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />

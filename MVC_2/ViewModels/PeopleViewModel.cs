@@ -14,6 +14,7 @@ namespace MVC_2.ViewModels
         public List<Person_> People_ { get; set; }
         public List<Country> Countries { get; set; }
         public List<City> Cities { get; set; }
+        public List<Language> Languages { get; set; }
 
 
         public PeopleViewModel()
