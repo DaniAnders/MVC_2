@@ -1,23 +1,34 @@
-﻿@model PeopleViewModel
+﻿@model Languages_ViewModel
+
 
 <div>
+    <h2>@Model.Title</h2>
+    <h4>@Model.Description</h4>
+</div>
 
-    @if (Model.Languages.Count != 0)
-    {
-        @foreach (var language in Model.Languages)
-        {
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Country ID</th>
+                <th scope="col">Country Name</th>
+            </tr>
+        </thead>
+        <tbody>
 
+            @if (Model.Languages.Count != 0)
+            {
+                @foreach (var language in Model.Languages)
+                {
 
-            <div class="row">
-                <div class="col">
-                    @language.Id
-                </div>
-                <div class="col">
-                    @language.LanguageName
-                </div>    
-            </div>
+                    <tr>
+                        <td>@language.Id</td>
+                        <td>@language.LanguageName</td>
+                    </tr>
 
+                }
+            }
 
-        }
-    }
+        </tbody>
+    </table>
 </div>

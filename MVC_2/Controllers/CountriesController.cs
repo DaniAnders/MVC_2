@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using MVC_2.Data;
 using MVC_2.ViewModels;
 
@@ -13,7 +14,7 @@ namespace MVC_2.Controllers
     public class CountriesController : Controller
     {
         private readonly ApplicationDBContext _dbContext;
-        PeopleViewModel model = new PeopleViewModel();
+        Countries_ViewModel model = new Countries_ViewModel();
 
         public CountriesController(ApplicationDBContext dbContext)
         {
@@ -23,6 +24,8 @@ namespace MVC_2.Controllers
         // GET:
         public IActionResult Countries()
         {
+            model.Title = "Countries Index";
+            model.Description = "List of countries";
             model.Countries = _dbContext.Countries.ToList();
             return View(model);
         }

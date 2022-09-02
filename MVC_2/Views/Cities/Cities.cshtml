@@ -1,29 +1,37 @@
-﻿@model PeopleViewModel
+﻿@model Cities_ViewModel
+
 
 <div>
-
-    @if (Model.Cities.Count != 0)
-    {
-        @foreach (var city in Model.Cities)
-        {
-
-
-            <div class="row">
-                <div class="col">
-                    @city.Id
-                </div>
-                <div class="col">
-                    @city.CityName
-                </div>
-                <div class="col">
-                    @city.CountryId
-                </div>
-                <div class="col">
-                    @city.Country
-                </div>
-            </div>
-
-
-        }
-    }
+    <h2>@Model.Title</h2>
+    <h4>@Model.Description</h4>
 </div>
+
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">City ID</th>
+                <th scope="col">City Name</th>
+                <th scope="col">Country ID</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @if (Model.Cities.Count != 0)
+            {
+                @foreach (var city in Model.Cities)
+                {
+
+                    <tr>
+                        <td>@city.Id</td>
+                        <td> @city.CityName</td>
+                        <td>@city.CountryId</td>
+                    </tr>
+
+                }
+            }
+
+        </tbody>
+    </table>
+</div>
+

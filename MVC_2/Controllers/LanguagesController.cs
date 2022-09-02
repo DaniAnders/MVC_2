@@ -13,7 +13,7 @@ namespace MVC_2.Controllers
     public class LanguagesController : Controller
     {
         private readonly ApplicationDBContext _dbContext;
-        PeopleViewModel model = new PeopleViewModel();
+        Languages_ViewModel model = new Languages_ViewModel();
 
         public LanguagesController(ApplicationDBContext dbContext)
         {
@@ -24,6 +24,8 @@ namespace MVC_2.Controllers
         // GET:
         public IActionResult Languages()
         {
+            model.Title = "Languages Index";
+            model.Description = "List of languages";
             model.Languages = _dbContext.Languages.ToList();
             return View(model);
         }

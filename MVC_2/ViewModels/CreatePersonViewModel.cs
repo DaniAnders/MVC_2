@@ -11,11 +11,11 @@ namespace MVC_2.ViewModels
         public string Name { get; set; }
 
         [Required(ErrorMessage = "Phone number is required")]
-        [StringLength(50)]
+        [StringLength(20)]
         public string Phone { get; set; }
 
         [Required(ErrorMessage = "City name is required")]
-        [StringLength(100)]
+        [StringLength(50)]
         public string City { get; set; }
 
 
