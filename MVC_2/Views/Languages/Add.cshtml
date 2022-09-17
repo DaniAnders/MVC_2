@@ -1,0 +1,16 @@
+﻿@model LanguageViewModel
+
+
+<div>
+    <h3>Add Language</h3>
+    <form asp-controller="Languages" asp-action="Add" method="post">
+        <fieldset>
+            <div>
+                <label asp-for="LanguageName"></label>
+                <input class="form-input" asp-for="LanguageName">
+                <span asp-validation-for="LanguageName"> </span>
+            </div>
+            <button id="submit" type="submit">Save</button>
+        </fieldset>
+    </form>
+</div>

@@ -1,31 +1,25 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+
 namespace MVC_2.Models
 {
-    public class Person
+    public class Person : EntityID
     {
-        public string Name { get; set; }
+
+        public string SSN { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
         public string Phone { get; set; }
-        public string City { get; set; }
-        public int PersonId { get; set; }
-        public static int nextId = 1;
+        public City City { get; set; }
+        public Guid CityId { get; set; }
+        public List<Language> Languages { get; set; }
+
 
         public Person()
         {
-            
-            PersonId = nextId;
-            nextId++;
-        }
 
-        public Person(string name, string phone, string city)
-        {
-            this.Name = name;
-            this.Phone = phone;
-            this.City = city;
-     
+            Languages = new List<Language>();
 
         }
-
-
     }
 }
-

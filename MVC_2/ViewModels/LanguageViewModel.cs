@@ -6,7 +6,6 @@ namespace MVC_2.ViewModels
     public class LanguageViewModel
     {
 
-        public int ID { get; set; }
 
         [Required(ErrorMessage = "Language name is required")]
         [Display(Name = "Language name:")]

@@ -2,8 +2,17 @@
 
 
 <div>
-    <h2>@Model.Title</h2>
-    <h4>@Model.Description</h4>
+    <h2>Cities</h2>
+    <h4>List of cities</h4>
+
+    @if (Model.Cities.Count == 0)
+    {
+        <p>List is Empty!</p>
+    }
+</div>
+
+<div>
+    <p> <a href="/Cities/Add">Add City</a> </p>
 </div>
 
 <div>
@@ -12,7 +21,6 @@
             <tr>
                 <th scope="col">City ID</th>
                 <th scope="col">City Name</th>
-                <th scope="col">Country ID</th>
                 <th scope="col">Country Name</th>
             </tr>
         </thead>
@@ -26,8 +34,10 @@
                     <tr>
                         <td>@city.Id</td>
                         <td> @city.CityName</td>
-                        <td>@city.CountryId</td>
                         <td>@city.Country.CountryName</td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@city.Id">Edit</a>
+                        </td>
                     </tr>
 
                 }

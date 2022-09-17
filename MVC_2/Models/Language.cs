@@ -1,15 +1,16 @@
 ﻿using System;
 namespace MVC_2.Models
 {
-    public class Language
+    public class Language : EntityID
     {
-        public int Id { get; set; }
+    
         public string LanguageName { get; set; }
-        public List<Person_> People { get; set; } = new List<Person_>();
+        public List<Person> People { get; set; }
 
 
         public Language()
         {
+            People = new List<Person>();
         }
     }
 }

@@ -1,0 +1,22 @@
+﻿@model Languages_ViewModel
+
+
+<div>
+    <h3>Edit Language</h3>
+    <form asp-controller="Languages" asp-action="Edit" method="post">
+        <fieldset>
+            <div>
+                <label asp-for="@Model.Language.Id"></label>
+                <input class="form-input" asp-for="@Model.Language.Id" readonly="readonly">
+                <span asp-validation-for="@Model.Language.Id"> </span>
+            </div>
+            <div>
+                <label asp-for="@Model.Language.LanguageName"></label>
+                <input class="form-input" asp-for="@Model.Language.LanguageName">
+                <span asp-validation-for="@Model.Language.LanguageName"> </span>
+            </div>
+            <button id="submit" type="submit">Save</button>
+        </fieldset>
+    </form>
+</div>
+

@@ -1,0 +1,21 @@
+﻿
+@model Cities_ViewModel
+
+<div>
+    <h3>Add City</h3>
+    <form asp-controller="Cities" asp-action="Add" method="post">
+        <fieldset>
+            <div>
+                <label asp-for="@Model.CityViewModel.CityName"></label>
+                <input class="form-input" asp-for="@Model.CityViewModel.CityName">
+                <span asp-validation-for="@Model.CityViewModel.CityName"> </span>
+            </div>
+            <div>
+                <label>Select country:</label>
+                <select asp-for="@Model.CityViewModel.CountryId" asp-items="Model.CountriesList"></select>
+            </div>
+
+            <button id="submit" type="submit" >Save</button>
+        </fieldset>
+    </form>
+</div>

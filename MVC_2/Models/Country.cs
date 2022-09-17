@@ -1,17 +1,17 @@
 ﻿using System;
 namespace MVC_2.Models
 {
-    public class Country
+    public class Country : EntityID
     {
-        public int Id { get; set; }
+ 
         public string CountryName { get; set; }
-        public List<City> Cities { get; set; } = new List<City>();
-
+        public List<City> Cities { get; set; }
 
 
 
         public Country()
         {
+            Cities = new List<City>();
         }
     }
 }

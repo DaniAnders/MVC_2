@@ -1,0 +1,21 @@
+﻿
+@model Countries_ViewModel
+
+<div>
+    <h3>Edit Country</h3>
+    <form asp-controller="Countries" asp-action="Edit" method="post">
+        <fieldset>
+            <div>
+                <label asp-for="@Model.Country.Id"></label>
+                <input class="form-input" asp-for="@Model.Country.Id" readonly="readonly">
+                <span asp-validation-for="@Model.Country.Id"> </span>
+            </div>
+            <div>
+                <label asp-for="@Model.Country.CountryName"></label>
+                <input class="form-input" asp-for="@Model.Country.CountryName">
+                <span asp-validation-for="@Model.Country.CountryName"> </span>
+            </div>
+            <button id="submit" type="submit">Save</button>
+        </fieldset>
+    </form>
+</div>

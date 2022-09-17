@@ -4,14 +4,23 @@
 <div>
     <h2>@Model.Title</h2>
     <h4>@Model.Description</h4>
+
+    @if (Model.Languages.Count == 0)
+     {
+        <p>List is Empty!</p>
+     }
+</div>
+
+<div>
+    <p> <a href="/Languages/Add">Add language</a> </p>
 </div>
 
 <div>
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">Country ID</th>
-                <th scope="col">Country Name</th>
+                <th scope="col">Language ID</th>
+                <th scope="col">Language</th>
             </tr>
         </thead>
         <tbody>
@@ -20,12 +29,14 @@
             {
                 @foreach (var language in Model.Languages)
                 {
-
                     <tr>
                         <td>@language.Id</td>
                         <td>@language.LanguageName</td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@language.Id">Edit</a>
+                        </td>
                     </tr>
-
+              
                 }
             }
 

@@ -1,0 +1,16 @@
+﻿
+@model CountryViewModel
+
+<div>
+    <h3>Add Country</h3>
+    <form asp-controller="Countries" asp-action="Add" method="post">
+        <fieldset>
+            <div>
+                <label asp-for="CountryName"></label>
+                <input class="form-input" asp-for="CountryName">
+                <span asp-validation-for="CountryName"> </span>
+            </div>
+            <button id="submit" type="submit">Save</button>
+        </fieldset>
+    </form>
+</div>

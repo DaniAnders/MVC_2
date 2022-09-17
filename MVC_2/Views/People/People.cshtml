@@ -2,77 +2,65 @@
 @model PeopleViewModel
 
 
-@{
-    string[] headers = { "ID", "Name", "Phone", "City" };
-}
-
-
-
+<div>
     <h2>@Model.Title</h2>
     <h4>@Model.Description</h4>
+</div>
 
+<p> <a href="/People/Create">Add a new user</a> </p>
 
-    @if (Model.Persons.Count == 0)
-    {
-        <p>List is Empty</p>
-    }
+<div>
+    <form asp-controller="People" asp-action="Search" method="post">
+        <input type="text" id="search" name="search">
+        <button id="submit" type="submit">Search</button>
+    </form>
+</div>
 
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Person ID</th>
+                <th scope="col">SSN</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Phone</th>
+                <th scope="col">City</th>
+                <th scope="col">Country</th>
+                <th scope="col">Languages</th>
+            </tr>
+        </thead>
+        <tbody>
 
+            @if (Model.People.Count != 0)
+            {
+                @foreach (var person in Model.People)
+                {
 
-    <p> <a href="/People/Create">Add a new user </a> </p>
-
-    <div>
-        <div>
-            <form asp-controller="People" asp-action="People" method="post">
-                <input type="text" id="search" name="search">
-                <button id="submit" type="submit">Search</button>
-            </form>
-
-            <div>
-                <div>
-                    <label>Sort table</label>
-                    <select id="sort">
-                        <option selected disabled value="">Order by</option>
-                        <option value="name">Name</option>
-                        <option value="city">City</option>
-                    </select>
-
-                </div>
-                <form asp-controller="People" asp-action="Delete" method="post">
-                    <table>
-                        <tr>
-
-                            @if (Model.Persons.Count != 0)
-                            {
-                                @foreach (var header in headers)
-                                {
-                                    <th>@header</th>
-                                }
-
-                            }
-                        </tr>
-
-                        @if (Model.Persons.Count != 0)
+                    <tr>
+                        <td>@person.Id</td>
+                        <td>@person.SSN</td>
+                        <td>@person.FirstName</td>
+                        <td>@person.LastName</td>
+                        <td>@person.Phone</td>
+                        <td>@person.City.CityName</td>
+                        <td>@person.City.Country.CountryName</td>
+                        @foreach (var lang in person.Languages)
                         {
-                            @foreach (var person in Model.Persons)
-                            {
-                                <tr>
-                                    <td>@person.PersonId</td>
-                                    <td>@person.Name</td>
-                                    <td>@person.Phone</td>
-                                    <td>@person.City</td>
-                                </tr>
-                            }
-
+                            <td>@lang.LanguageName</td>
                         }
 
-                    </table>
-                    @if (Model.Persons.Count != 0)
-                    {
-                        <p> <a href="/People/Delete"> Delete from list </a> </p>
-                    }
-                </form>
-            </div>
-        </div>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@person.Id">Edit</a>
+                        </td>
+                        <td>
+                            <a asp-action="Delete" asp-route-id="@person.Id">Delete</a>
+                        </td>
+                    </tr>
 
-    </div>
+                }
+            }
+
+        </tbody>
+    </table>
+</div>

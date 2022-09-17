@@ -1,0 +1,37 @@
+﻿@model PeopleViewModel
+
+
+<div>
+    <h3>Edit</h3>
+    <form asp-controller="People" asp-action="Edit" method="post">
+        <fieldset>
+            <div>
+                <label asp-for="@Model.Person.SSN"></label>
+                <input class="form-input" asp-for="@Model.Person.SSN" readonly="readonly">
+                <span asp-validation-for="@Model.Person.SSN"> </span>
+            </div>
+            <div>
+                <label asp-for="@Model.Person.FirstName"></label>
+                <input class="form-input" asp-for="@Model.Person.FirstName">
+                <span asp-validation-for="@Model.Person.FirstName"> </span>
+            </div>
+            <div>
+                <label asp-for="@Model.Person.LastName"></label>
+                <input class="form-input" asp-for="@Model.Person.LastName">
+                <span asp-validation-for="@Model.Person.LastName"> </span>
+            </div>
+            <div>
+                <label asp-for="@Model.Person.Phone"></label>
+                <input class="form-input" asp-for="@Model.Person.Phone">
+                <span asp-validation-for="@Model.Person.Phone"> </span>
+            </div>
+            <div>
+                <label>Select City:</label>
+                <select asp-for="@Model.Person.CityId" asp-items="Model.CitiesList"></select>
+                <span asp-validation-for="@Model.Person.CityId"> </span>
+            </div>
+
+            <button id="submit" type="submit">Save</button>
+        </fieldset>
+    </form>
+</div>

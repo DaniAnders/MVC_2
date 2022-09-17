@@ -1,47 +1,47 @@
 ﻿@model PeopleViewModel
 
 
-@{
-    string[] headers = { "ID", "Name", "Phone", "City" };
-}
+    <h2>Partial View - User Details</h2>
+    <h4>@Model.Message</h4>
 
-    <h4>Partial View - User Details</h4>
+    <p> <a href="/People/People">Back to Index</a> </p>
 
-    <div class="container">
-        <div class="row">
-            @if (Model.Persons.Count != 0)
-            {
-                @foreach (var header in headers)
-                {
-                    <div class="col-sm">
-                        @header
-                    </div>
-                }
-            }
-            @if (Model.Persons.Count != 0)
-            {
-    
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Person ID</th>
+                    <th scope="col">SSN</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">City</th>
+                    <th scope="col">Languages</th>
+                </tr>
+            </thead>
+            <tbody>
+              @if (Model.Person != null)
+              {
+                   
+               <tr>
+                   <td>@Model.Person.Id</td>
+                   <td>@Model.Person.SSN</td>
+                   <td>@Model.Person.FirstName</td>
+                   <td>@Model.Person.LastName</td>
+                   <td>@Model.Person.Phone</td>
+                   <td>@Model.Person.City.CityName</td>
+                   @foreach (var lang in Model.Person.Languages)
+                   {
+                       <td>@lang.LanguageName</td>
+                   }
 
-                @foreach (var person in Model.Persons)
-                {
+                   <td>
+                       <a asp-action="DeleteUser" asp-route-id="@Model.Person.Id">Delete</a>
+                   </td>
+               </tr>
 
-                    <div class="row">
-                        <div class="col">
-                            @person.PersonId
-                        </div>
-                        <div class="col">
-                            @person.Name
-                        </div>
-                        <div class="col">
-                            @person.Phone
-                        </div>
-                        <div class="col">
-                            @person.City
-                        </div>
-                    </div>
+               }
 
-                }
-            }
-
-        </div>
+            </tbody>
+        </table>
     </div>

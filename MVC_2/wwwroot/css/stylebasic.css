@@ -20,20 +20,23 @@ header {
     border-radius: 10px;
 }
 
-    header > nav > ul {
-        display: flex;
-        justify-content: space-between;
-        list-style: none;
-    }
-
-        header > nav > ul > li {
-            font-size: 20px;
-            padding: 38px;
-        }
-
-nav a {
-    color: white;
+header > nav > div > ul {
+    display: flex; 
+    justify-content: space-between;
+    list-style: none;
 }
+
+header > nav > div > ul > li {
+    font-size: 20px;
+    padding: 38px;
+        
+}
+
+nav > div > ul > li a {
+    color: white;
+   
+}
+
 
 #bt {
     display: flex;

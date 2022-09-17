@@ -1,33 +1,36 @@
-﻿@model MVC_2.ViewModels.PeopleViewModel
+﻿@model PeopleViewModel
 
     <h4>Partial View - Users List</h4>
     <div>
 
-        @if (Model.Persons.Count != 0)
+        @if (Model.People.Count != 0)
         {
-            @foreach (var person in Model.Persons)
+            @foreach (var person in Model.People)
             {
 
 
                 <div class="row">
                     <div class="col">
-                        @person.PersonId
+                        @person.SSN
                     </div>
                     <div class="col">
-                        @person.Name
+                        @person.FirstName
+                    </div>
+                    <div class="col">
+                        @person.LastName
                     </div>
                     <div class="col">
                         @person.Phone
                     </div>
                     <div class="col">
-                        @person.City
+                        @person.City.CityName
                     </div>
                 </div>
 
 
             }
         }
-        @if (Model.Persons.Count == 0)
+        @if (Model.People.Count == 0)
         {
             <p>The list is empty!</p>
         }

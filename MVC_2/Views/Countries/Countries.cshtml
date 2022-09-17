@@ -4,6 +4,22 @@
 <div>
     <h2>@Model.Title</h2>
     <h4>@Model.Description</h4>
+
+    @if (Model.Countries.Count == 0)
+    {
+        <p>List is Empty!</p>
+    }
+</div>
+
+<div>
+    <p> <a href="/Countries/Add">Add Country</a> </p>
+</div>
+
+<div>
+    <form asp-controller="Countries" asp-action="Search" method="post">
+        <input type="text" id="search" name="search">
+        <button id="submit" type="submit">Search</button>
+    </form>
 </div>
 
 <div>
@@ -12,6 +28,7 @@
             <tr>
                 <th scope="col">Country ID</th>
                 <th scope="col">Country Name</th>
+                <th scope="col">Country Cities</th>
             </tr>
         </thead>
         <tbody>
@@ -24,8 +41,14 @@
                     <tr>
                         <td>@country.Id</td>
                         <td> @country.CountryName</td>
+                        @foreach (var city in country.Cities)
+                        {
+                            <td>@city.CityName</td>
+                        }
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@country.Id">Edit</a>
+                        </td>
                     </tr>
-
                 }
             }
 

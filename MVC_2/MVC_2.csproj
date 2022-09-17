@@ -26,7 +26,6 @@
     <None Remove="Microsoft.EntityFrameworkCore.SqlServer" />
     <None Remove="Microsoft.EntityFrameworkCore.Tools" />
     <None Remove="NuGet.PackageManagement" />
-    <None Remove="Views\People_\" />
     <None Remove="Views\Cities\" />
     <None Remove="Views\Languages\" />
   </ItemGroup>
@@ -44,7 +43,6 @@
     <Folder Include="ViewModels\" />
     <Folder Include="Data\" />
     <Folder Include="Views\Ajax\" />
-    <Folder Include="Views\People_\" />
     <Folder Include="Views\Cities\" />
     <Folder Include="Views\Languages\" />
   </ItemGroup>

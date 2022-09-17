@@ -1,9 +1,4 @@
-﻿@{
-    string[] menus = { "Index", "Projects", "People", "Ajax", "People_", "Countries", "Cities", "Languages"};
-
-}
-
-
+﻿
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,15 +11,29 @@
 <body>
     <header class="header">
         <nav>
-            <ul>
-                @foreach (var menu in menus)
-                {
-                    <li>
-                        <a href=@menu>@menu</a>
+            <div>
+                <ul>
+                    <li class="nav-item">
+                        <a asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-controller="Home" asp-action="Projects">Projects</a>
                     </li>
 
-                }
-            </ul>
+                    <li class="nav-item">
+                        <a asp-controller="People" asp-action="People">People</a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-controller="Countries" asp-action="Countries">Countries</a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-controller="Cities" asp-action="Cities">Cities</a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-controller="Languages" asp-action="Languages">Languages</a>
+                    </li>
+                </ul>
+            </div>
         </nav>
     </header>
     <main>

@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using MVC_2.Models;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace MVC_2.ViewModels
 {
@@ -9,16 +11,24 @@ namespace MVC_2.ViewModels
 
         public string Title { get; set; }
         public string Description { get; set; }
-        //public CreatePersonViewModel CreatePerson { get; set; }
-        public List<Person> Persons { get; set; }
-        public List<Person_> People_ { get; set; }
-        public List<Country> Countries { get; set; }
-        public List<City> Cities { get; set; }
-        public List<Language> Languages { get; set; }
+        public string Message { get; set; }
+        public Person Person { get; set; }
+        public CreatePersonViewModel CreatePerson { get; set; }
+
+        public List<Person> People { get; set; }
+        public List<SelectListItem> CitiesList { get; set; }
+        public List<SelectListItem> LanguagesList { get; set; }
+
+        public Guid[] SelectedLanguages { get; set; }
+
+
 
 
         public PeopleViewModel()
         {
+            People = new List<Person>();
+            CitiesList = new List<SelectListItem>();
+            LanguagesList = new List<SelectListItem>();
         }
 
 

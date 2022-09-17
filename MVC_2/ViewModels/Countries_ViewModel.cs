@@ -8,9 +8,11 @@ namespace MVC_2.ViewModels
         public string Title { get; set; }
         public string Description { get; set; }
         public List<Country> Countries { get; set; }
+        public Country Country { get; set; }
 
         public Countries_ViewModel()
         {
+            Countries = new List<Country>();
         }
     }
 }

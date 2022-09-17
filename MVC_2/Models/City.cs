@@ -1,18 +1,17 @@
 ﻿using System;
 namespace MVC_2.Models
 {
-    public class City
+    public class City : EntityID
     {
-        public int Id { get; set; }
         public string CityName { get; set; }
         public Country Country { get; set; }
-        public int CountryId { get; set; }
-       // public int CountryName { get; set; }
-        public List<Person_> People { get; set; } = new List<Person_>();
+        public Guid CountryId { get; set; }
+        public List<Person> People { get; set; }
         
 
         public City()
         {
+            People = new List<Person>();
         }
     }
 }

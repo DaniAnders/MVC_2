@@ -8,7 +8,6 @@ namespace MVC_2.ViewModels
     public class CountryViewModel
     {
 
-        public int Id { get; set; }
 
         [Required(ErrorMessage = "Country name is required")]
         [Display(Name = "Country name:")]
