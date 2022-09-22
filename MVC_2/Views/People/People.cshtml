@@ -42,7 +42,7 @@
                         <td>@person.FirstName</td>
                         <td>@person.LastName</td>
                         <td>@person.Phone</td>
-       
+
                         @if (person.CityId != null && person.City.CountryId != null)
                         {
                             <td>@person.City.CityName</td>
@@ -67,9 +67,13 @@
                         <td>
                             <a asp-action="Edit" asp-route-id="@person.Id">Edit</a>
                         </td>
-                        <td>
-                            <a asp-action="Delete" asp-route-id="@person.Id">Delete</a>
-                        </td>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <td>
+                                <a asp-action="Delete" asp-route-id="@person.Id">Delete</a>
+                            </td>
+                        }
+
                     </tr>
 
                 }

@@ -19,20 +19,35 @@
                     <li class="nav-item">
                         <a asp-controller="Home" asp-action="Projects">Projects</a>
                     </li>
+                    @if (User.IsInRole("Admin") || User.IsInRole("User"))
+                    {
+                        <li class="nav-item">
+                            <a asp-controller="People" asp-action="People">People</a>
+                        </li>
+                    }
 
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li class="nav-item">
+                            <a asp-controller="Countries" asp-action="Countries">Countries</a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-controller="Cities" asp-action="Cities">Cities</a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-controller="Languages" asp-action="Languages">Languages</a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-controller="Roles" asp-action="Index">Roles</a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-controller="Roles" asp-action="Users">Users</a>
+                        </li>
+                    }
+                 
                     <li class="nav-item">
-                        <a asp-controller="People" asp-action="People">People</a>
+                        <partial name="_LoginPartial" />
                     </li>
-                    <li class="nav-item">
-                        <a asp-controller="Countries" asp-action="Countries">Countries</a>
-                    </li>
-                    <li class="nav-item">
-                        <a asp-controller="Cities" asp-action="Cities">Cities</a>
-                    </li>
-                    <li class="nav-item">
-                        <a asp-controller="Languages" asp-action="Languages">Languages</a>
-                    </li>
-                    
                 </ul>
             </div>
         </nav>

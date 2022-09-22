@@ -1,26 +1,33 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using MVC_2.Data;
 using MVC_2.Models;
 using MVC_2.ViewModels;
 
+
 namespace MVC_2.Controllers
 {
+
+    [Authorize(Roles = "Admin")]
     public class RolesController : Controller
     {
-
+        readonly ApplicationDBContext _dbContext;
         readonly RoleManager<IdentityRole> role_Manager;
         readonly UserManager<ApplicationUser> user_Manager;
         RolesViewModel rolesModel = new RolesViewModel();
         UsersRolesViewModel usersModel = new UsersRolesViewModel();
 
 
-        public RolesController(RoleManager<IdentityRole> roleManager, UserManager<ApplicationUser> userManager)
+        public RolesController(RoleManager<IdentityRole> roleManager, UserManager<ApplicationUser> userManager, ApplicationDBContext dbContext)
         {
+            _dbContext = dbContext;
             role_Manager = roleManager;
             user_Manager = userManager;
         }
@@ -164,6 +171,20 @@ namespace MVC_2.Controllers
             
        
             return RedirectToAction("UserRoles", new { userID = userid });
+        }
+
+
+        public async Task<IActionResult> DeleteUser(string userid)
+        {
+            ApplicationUser user = await user_Manager.FindByIdAsync(userid);
+
+            if(user != null)
+            {
+                _dbContext.Users.Remove(user);
+                _dbContext.SaveChanges();
+            }
+
+            return RedirectToAction("Users");
         }
 
 

@@ -10,9 +10,13 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Diagnostics.Metrics;
 using System.Runtime.Intrinsics.X86;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace MVC_2.Controllers
 {
+
+    [Authorize(Roles = "Admin, User")]
     public class PeopleController : Controller
     {
 
