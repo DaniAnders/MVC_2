@@ -33,8 +33,10 @@ namespace MVC_2.Controllers
             model.People = _dbContext.People
                            .Include(person => person.City)
                            .ThenInclude(person => person.Country)
-                           .Include(person => person.Languages).ToList();
-        
+                           .Include(person => person.Languages)
+                           .OrderBy(person => person.FirstName).ToList();
+
+
             return View(model);
         }
 
@@ -60,7 +62,7 @@ namespace MVC_2.Controllers
             ModelState.Remove("Message");
             ModelState.Remove("People");
             ModelState.Remove("Person");
-         
+ 
             if (ModelState.IsValid)
             {
                 /* Avoiding having two users with same SSN */
@@ -95,12 +97,19 @@ namespace MVC_2.Controllers
         public IActionResult Edit(Guid id)
         {
 
-            var person = _dbContext.People.FirstOrDefault(p => p.Id == id);
+            var person = _dbContext.People.Include(p => p.City).Include(p => p.Languages).FirstOrDefault(p => p.Id == id);
             model.Person = person;
 
             var cities = _dbContext.Cities.ToList();
             model.CitiesList = new SelectList(_dbContext.Cities, "Id", "CityName").ToList();
-            model.LanguagesList = new SelectList(_dbContext.Languages, "Id", "LanguageName").ToList();
+
+            List<Language> list = _dbContext.Languages.ToList();
+            foreach(var language in person.Languages)
+            {
+                list.RemoveAll(x => x.LanguageName == language.LanguageName);
+            }
+
+            model.LanguagesList = new SelectList(list, "Id", "LanguageName").ToList();
 
             return View(model);
 
@@ -111,17 +120,45 @@ namespace MVC_2.Controllers
         public IActionResult Edit(PeopleViewModel pvm)
         {
             var person = _dbContext.People.FirstOrDefault(p => p.SSN == pvm.Person.SSN);
-            person.FirstName = pvm.Person.FirstName;
-            person.LastName = pvm.Person.LastName;
-            person.Phone = pvm.Person.Phone;
-            person.CityId = pvm.Person.CityId;
+            if(person != null)
+            {
+                person.FirstName = pvm.Person.FirstName;
+                person.LastName = pvm.Person.LastName;
+                person.Phone = pvm.Person.Phone;
+                person.CityId = pvm.Person.CityId;
 
+                if (pvm.SelectedLanguages != null)
+                {
+                    foreach (var id in pvm.SelectedLanguages)
+                    {
+                        var language = _dbContext.Languages.FirstOrDefault(a => a.Id == id);
+                        person.Languages.Add(language);
+                    }
+                }
 
-            _dbContext.People.Update(person);
-            _dbContext.SaveChanges();
-        
+                _dbContext.People.Update(person);
+                _dbContext.SaveChanges();
+            }
+
             return RedirectToAction("People");
         }
+
+
+        public IActionResult RemoveLanguage(Guid userId, Guid languageId)
+        {
+            var person = _dbContext.People.Include(person => person.Languages).FirstOrDefault(person => person.Id == userId);
+            var language = _dbContext.Languages.FirstOrDefault(lang => lang.Id == languageId);
+
+            if(person != null && language != null)
+            {
+                person.Languages.Remove(language);
+                //_dbContext.ChangeTracker.DetectChanges();
+                _dbContext.SaveChanges();
+            }
+             
+            return RedirectToAction("Edit", new { id = userId });
+        }
+
 
 
         public IActionResult Delete(Guid id)
@@ -138,9 +175,12 @@ namespace MVC_2.Controllers
         {
 
             var person = _dbContext.People.FirstOrDefault(p => p.Id == id);
-            _dbContext.People.Remove(person);
-            _dbContext.SaveChanges();
-
+            if(person != null)
+            {
+                _dbContext.People.Remove(person);
+                _dbContext.SaveChanges();
+            }
+ 
              return RedirectToAction("People");
         }
 

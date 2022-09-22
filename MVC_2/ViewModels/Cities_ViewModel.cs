@@ -14,6 +14,9 @@ namespace MVC_2.ViewModels
         public List<City> Cities { get; set; }
         public List<SelectListItem> CountriesList { get; set; }
 
+        public string Message { get; set; }
+        public List<Person> PeopleByCity { get; set; }
+
       
         public Cities_ViewModel()
         {

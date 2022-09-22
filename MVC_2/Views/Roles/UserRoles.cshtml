@@ -1,0 +1,59 @@
+﻿@model UsersRolesViewModel
+
+
+<div>
+    <table class="user roles table">
+        <thead>
+            <tr>
+                <th>SSN</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.ApplicationUser.SSN</td>
+                <td>@Model.ApplicationUser.FirstName</td>
+                <td>@Model.ApplicationUser.LastName</td>
+            </tr>
+            <tr>
+                <td>
+                    <h4>User Roles:</h4>
+                </td>
+            </tr>
+            @foreach (var role in Model.UserRoles)
+            {
+                <tr>
+                    <td>@role</td>
+                    <td>
+                        <a asp-action="RemoveRole" asp-route-rolename="@role" asp-route-userid=@Model.ApplicationUser.Id class="btn btn-danger">Remove role</a>
+                    </td>
+
+                </tr>
+
+            }
+
+            <tr>
+                <td>
+                    <h4>Add Role to User:</h4>
+                </td>
+            </tr>
+            @foreach (var role in Model.IdentityRoles)
+            {
+                <tr>
+                    <td>@role</td>
+                    <td>
+                        <a asp-action="AddRole" asp-route-rolename="@role" asp-route-userid=@Model.ApplicationUser.Id class="btn btn-primary">Add Role</a>
+                    </td>
+
+                </tr>
+
+            }
+
+        </tbody>
+    </table>
+</div>
+
+<div>
+
+</div>

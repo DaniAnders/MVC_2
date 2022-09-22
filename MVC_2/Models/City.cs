@@ -5,7 +5,7 @@ namespace MVC_2.Models
     {
         public string CityName { get; set; }
         public Country Country { get; set; }
-        public Guid CountryId { get; set; }
+        public Guid? CountryId { get; set; }
         public List<Person> People { get; set; }
         
 

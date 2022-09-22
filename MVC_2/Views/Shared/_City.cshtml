@@ -1,0 +1,41 @@
+﻿
+@model Cities_ViewModel
+
+<h2>Partial View - City</h2>
+<h4>@Model.Message</h4>
+
+<p> <a href="/People/People">Back to Index</a> </p>
+
+@if (Model.PeopleByCity.Count != 0)
+{
+   <h3>List of people living in  @Model.City.CityName</h3>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">SSN</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">City</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var person in Model.PeopleByCity)
+                {
+                    <tr>
+                        <td>@person.SSN</td>
+                        <td>@person.FirstName</td>
+                        <td>@person.LastName</td>
+                        <td>@person.City.CityName</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+        <h3>There are no users living in @Model.City.CityName</h3>
+}
+
+<a asp-action="DeleteCity" asp-route-id="@Model.City.Id">Delete</a>

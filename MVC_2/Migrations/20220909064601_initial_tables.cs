@@ -61,7 +61,7 @@ namespace MVC_2.Migrations
                     FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Phone = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CityId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    CityId = table.Column<Guid>(type: "uniqueidentifier", nullable: false) //false
                 },
                 constraints: table =>
                 {

@@ -1,5 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using MVC_2.Data;
+using MVC_2.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,12 +21,34 @@ builder.Services.AddDbContext<ApplicationDBContext>(options =>
 });
 
 
+builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
+    .AddRoles<IdentityRole>()
+    .AddEntityFrameworkStores<ApplicationDBContext>();
+
+builder.Services.Configure<IdentityOptions>(options =>
+{
+    options.Password.RequireDigit = false; //true
+    options.Password.RequireNonAlphanumeric = false; //true
+    options.Password.RequireLowercase = false; // true;
+    options.Password.RequiredUniqueChars = 1;
+    options.Password.RequireUppercase = false; //true;
+    options.Password.RequiredLength = 6;
+
+});
+
+builder.Services.AddRazorPages();
+
+
 var app = builder.Build();
 
 app.UseSession();
 app.UseStaticFiles();
-
 app.UseRouting();
+
+
+app.UseAuthentication();
+app.UseAuthorization();
+app.MapRazorPages();
 
 /*app.MapControllerRoute(
     name: "languages",

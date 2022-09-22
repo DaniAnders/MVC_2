@@ -28,10 +28,36 @@
             <div>
                 <label>Select City:</label>
                 <select asp-for="@Model.Person.CityId" asp-items="Model.CitiesList"></select>
-                <span asp-validation-for="@Model.Person.CityId"> </span>
+                <!-- <span asp-validation-for="@Model.Person.CityId"> </span>   -->
+            </div>
+            <div>
+                <label>Add languages:</label>
+                <select multiple="multiple" asp-for="@Model.SelectedLanguages" asp-items="Model.LanguagesList"></select>
             </div>
 
             <button id="submit" type="submit">Save</button>
         </fieldset>
     </form>
+</div>
+
+<div>
+    <table class="languages">
+        <thead>
+            <tr>
+                <th>Remove Languages from User</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var lang in Model.Person.Languages)
+            {
+                <tr>
+                    <td>@lang.LanguageName</td>
+                    <td>
+                        <a asp-action="RemoveLanguage" asp-route-userId="@Model.Person.Id" asp-route-languageId="@lang.Id">Remove Language</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>

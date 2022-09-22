@@ -25,7 +25,7 @@ namespace MVC_2.ViewModels
         public string Phone { get; set; }
 
 
-        [Required(ErrorMessage = "City is required")]
+        //[Required(ErrorMessage = "City is required")]
         [Display(Name = "City")]
         public Guid CityId { get; set; }
 

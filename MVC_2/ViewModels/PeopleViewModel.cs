@@ -15,6 +15,7 @@ namespace MVC_2.ViewModels
         public Person Person { get; set; }
         public CreatePersonViewModel CreatePerson { get; set; }
 
+
         public List<Person> People { get; set; }
         public List<SelectListItem> CitiesList { get; set; }
         public List<SelectListItem> LanguagesList { get; set; }

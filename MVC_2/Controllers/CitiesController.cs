@@ -33,11 +33,9 @@ namespace MVC_2.Controllers
         }
 
 
-
-
         public IActionResult Add()
         {
-           // var countries = _dbContext.Countries.ToList();
+          
             model.CountriesList = new SelectList(_dbContext.Countries, "Id", "CountryName").ToList();
 
             return View(model);
@@ -47,9 +45,12 @@ namespace MVC_2.Controllers
         [HttpPost]
         public IActionResult Add(Cities_ViewModel cvm)
         {
+            ModelState.Remove("CityViewModel");
+            ModelState.Remove("City");
             ModelState.Remove("Cities");
             ModelState.Remove("CountriesList");
-            ModelState.Remove("City");
+            ModelState.Remove("Message");
+            ModelState.Remove("PeopleByCity");
 
             if (ModelState.IsValid)
             {
@@ -112,6 +113,53 @@ namespace MVC_2.Controllers
 
             return RedirectToAction("Cities");
         }
+
+
+
+        public IActionResult Delete(Guid id)
+        {
+         
+            model.Message = "Click the delete button to confirm you want remove this city.";
+            var city = _dbContext.Cities.FirstOrDefault(c => c.Id == id);
+            model.City = city;
+
+            model.PeopleByCity = _dbContext.People
+                           .Include(person => person.City).Where(person => person.CityId == city.Id).ToList();
+
+            return PartialView("_City", model);
+
+        }
+
+
+        public IActionResult DeleteCity(Guid id)
+        {
+
+            var city = _dbContext.Cities.FirstOrDefault(c => c.Id == id);
+
+            List<Person> peopleByCity = _dbContext.People
+                           .Include(person => person.City).Where(person => person.CityId == city.Id).ToList();
+            if(peopleByCity != null)
+            {
+                foreach (var person in peopleByCity)
+                {
+                    person.SSN = person.SSN;
+                    person.FirstName = person.FirstName;
+                    person.LastName = person.LastName;
+                    person.Phone = person.Phone;
+                    person.CityId = null;
+                    person.City.CountryId = null;
+                    _dbContext.People.Update(person);
+                    _dbContext.SaveChanges();
+                }
+            }
+            
+            _dbContext.Cities.Remove(city);
+            _dbContext.SaveChanges();
+
+            return RedirectToAction("Cities");
+
+        }
+
 
 
     }

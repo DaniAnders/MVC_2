@@ -120,6 +120,51 @@ namespace MVC_2.Controllers
         }
 
 
+
+        public IActionResult Delete(Guid id)
+        {
+
+            model.Message = "Click the delete button to confirm you want remove this country";
+            var country = _dbContext.Countries.FirstOrDefault(c => c.Id == id);
+            model.Country = country;
+
+            model.CitiesByCountry = _dbContext.Cities.Include(city => city.Country).Where(city => city.CountryId == country.Id).ToList();
+
+
+            return PartialView("_Country", model);
+
+        }
+
+
+        public IActionResult DeleteCountry(Guid id)
+        {
+            var country = _dbContext.Countries.FirstOrDefault(x => x.Id == id);
+
+          //  var country = _dbContext.Countries.Include(c => c.Cities).FirstOrDefault(c => c.Id == id); 
+
+            List<City> citiesByCountry = _dbContext.Cities.Include(city => city.Country).Where(city => city.CountryId == id).ToList();
+
+            List <City> list = country.Cities.ToList();
+
+            if (list != null)
+            {
+                foreach (var city in list)
+                {
+                    city.CityName = city.CityName;
+                    city.CountryId = null;
+                    _dbContext.Cities.Update(city);
+                    _dbContext.SaveChanges();
+                }
+            }
+
+
+            _dbContext.Countries.Remove(country);
+            _dbContext.SaveChanges();
+
+            return RedirectToAction("Countries");
+        }
+
+
     }
 }
 

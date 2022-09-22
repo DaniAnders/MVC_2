@@ -1,0 +1,24 @@
+﻿@model RolesViewModel
+
+
+<div>
+    <h2>@Model.Title</h2>
+    <h4>@Model.Description</h4>
+</div>
+
+<div>
+    <form asp-controller="Roles" asp-action="Edit" method="post">
+        <fieldset>
+            <div>
+                <label asp-for="@Model.IdentityRole.Id"></label>
+                <input class="form-input" asp-for="@Model.IdentityRole.Id" readonly="readonly">
+            </div>
+            <div>
+                <label asp-for="@Model.IdentityRole.Name"></label>
+                <input class="form-input" asp-for="@Model.IdentityRole.Name">
+            </div>
+            <button id="submit" type="submit">Save</button>
+        </fieldset>
+    </form>
+</div>
+

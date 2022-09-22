@@ -1,5 +1,4 @@
-﻿
-@model PeopleViewModel
+﻿@model PeopleViewModel
 
 
 <div>
@@ -43,8 +42,23 @@
                         <td>@person.FirstName</td>
                         <td>@person.LastName</td>
                         <td>@person.Phone</td>
-                        <td>@person.City.CityName</td>
-                        <td>@person.City.Country.CountryName</td>
+       
+                        @if (person.CityId != null && person.City.CountryId != null)
+                        {
+                            <td>@person.City.CityName</td>
+                            <td>@person.City.Country.CountryName</td>
+                        }
+                        else if (person.CityId != null && person.City.CountryId == null)
+                        {
+                            <td>@person.City.CityName</td>
+                            <td>Null</td>
+                        }
+                        else
+                        {
+                            <td>Null</td>
+                            <td>Null</td>
+                        }
+
                         @foreach (var lang in person.Languages)
                         {
                             <td>@lang.LanguageName</td>

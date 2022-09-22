@@ -1,0 +1,19 @@
+﻿
+@model RolesViewModel
+
+<div>
+    <h2> Create </h2>
+    <h4>Create a new role</h4>
+</div>
+
+<div>
+    <form asp-controller="Roles" asp-action="Create" method="post">
+        <fieldset>
+            <div>
+                <label asp-for="@Model.IdentityRole.Name"></label>
+                <input class="form-input" asp-for="@Model.IdentityRole.Name">
+            </div>
+            <button id="submit" type="submit">Save</button>
+        </fieldset>
+    </form>
+</div>

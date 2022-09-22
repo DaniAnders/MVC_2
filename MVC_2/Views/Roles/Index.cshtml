@@ -1,0 +1,47 @@
+﻿@model RolesViewModel
+
+<div>
+    <h2>@Model.Title</h2>
+    <h4>@Model.Description</h4>
+</div>
+@if(Model.IdentityRoles.Count() == 0)
+{
+        <p>Roles list is empty!</p>
+}
+            
+
+<a asp-action="Create" class="btn btn-primary">Add new role</a>
+
+<div>
+    @if (Model.IdentityRoles.Count() > 0)
+    {
+            <table class="roles table">
+                <thead>
+                    <tr>
+                        <th>Role ID</th>
+                        <th>Role Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var role in Model.IdentityRoles)
+                    {
+                        <tr>
+                            <td>@role.Id</td>
+                            <td>@role.Name</td>
+                            <td>
+                                <a asp-action="Edit" asp-route-roleid="@role.Id">Edit</a>
+                            </td>
+                            <td>
+                                <a asp-action="Delete" asp-route-roleid="@role.Id">Delete</a>
+                            </td>
+                        </tr>
+                   
+                    }
+
+                </tbody>
+            </table>
+     }
+</div>
+
+
+

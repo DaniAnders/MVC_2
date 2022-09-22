@@ -26,7 +26,8 @@ namespace MVC_2.Controllers
         {
             model.Title = "Languages";
             model.Description = "List of languages";
-            model.Languages = _dbContext.Languages.ToList();
+            model.Languages = _dbContext.Languages
+                .OrderBy(language => language.LanguageName).ToList();
             return View(model);
         }
 
@@ -92,6 +93,16 @@ namespace MVC_2.Controllers
 
             return RedirectToAction("Languages");
         }
+
+
+       public IActionResult Delete(Guid id)
+         {
+             var language = _dbContext.Languages.FirstOrDefault(x => x.Id == id);
+             _dbContext.Languages.Remove(language);
+             _dbContext.SaveChanges();
+
+             return RedirectToAction("Languages");
+       }
 
 
     }

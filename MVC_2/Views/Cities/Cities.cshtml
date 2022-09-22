@@ -34,9 +34,20 @@
                     <tr>
                         <td>@city.Id</td>
                         <td> @city.CityName</td>
-                        <td>@city.Country.CountryName</td>
+                        @if (city.CountryId != null)
+                        {
+                            <td>@city.Country.CountryName</td>
+                        }
+                        else
+                        {
+                            <td>Null</td>
+                        }
+                      
                         <td>
                             <a asp-action="Edit" asp-route-id="@city.Id">Edit</a>
+                        </td>
+                        <td>
+                            <a asp-action="Delete" asp-route-id="@city.Id">Delete</a>
                         </td>
                     </tr>
 

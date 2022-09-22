@@ -1,0 +1,35 @@
+﻿@model Countries_ViewModel
+
+<h2>Partial View - Country</h2>
+<h4>@Model.Message</h4>
+
+<p> <a href="/People/People">Back to Index</a> </p>
+
+
+@if (Model.CitiesByCountry.Count != 0)
+{
+    <h3>List of cities in @Model.Country.CountryName</h3>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">City Name</th>    
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var city in Model.CitiesByCountry)
+                {
+                    <tr>
+                        <td>@city.CityName</td>    
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <h3>There are no cities in @Model.Country.CountryName</h3>
+}
+
+<a asp-action="DeleteCountry" asp-route-id="@Model.Country.Id">Delete</a>
