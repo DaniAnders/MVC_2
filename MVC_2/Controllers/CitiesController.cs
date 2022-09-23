@@ -138,32 +138,26 @@ namespace MVC_2.Controllers
         public IActionResult DeleteCity(Guid id)
         {
 
-            var city = _dbContext.Cities.FirstOrDefault(c => c.Id == id);
+            var city = _dbContext.Cities.Include(city => city.People).FirstOrDefault(city => city.Id == id);
 
             List<Person> peopleByCity = _dbContext.People
                            .Include(person => person.City).Where(person => person.CityId == city.Id).ToList();
-            if(peopleByCity != null)
+            if (peopleByCity != null)
             {
                 foreach (var person in peopleByCity)
                 {
-                    person.SSN = person.SSN;
-                    person.FirstName = person.FirstName;
-                    person.LastName = person.LastName;
-                    person.Phone = person.Phone;
-                    person.CityId = null;
-                    person.City.CountryId = null;
-                    _dbContext.People.Update(person);
+                    _dbContext.People.Remove(person);
                     _dbContext.SaveChanges();
                 }
             }
-            
+
             _dbContext.Cities.Remove(city);
             _dbContext.SaveChanges();
+
 
             return RedirectToAction("Cities");
 
         }
-
 
 
     }

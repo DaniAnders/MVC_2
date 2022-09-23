@@ -42,23 +42,8 @@
                         <td>@person.FirstName</td>
                         <td>@person.LastName</td>
                         <td>@person.Phone</td>
-
-                        @if (person.CityId != null && person.City.CountryId != null)
-                        {
-                            <td>@person.City.CityName</td>
-                            <td>@person.City.Country.CountryName</td>
-                        }
-                        else if (person.CityId != null && person.City.CountryId == null)
-                        {
-                            <td>@person.City.CityName</td>
-                            <td>Null</td>
-                        }
-                        else
-                        {
-                            <td>Null</td>
-                            <td>Null</td>
-                        }
-
+                        <td>@person.City.CityName</td>
+                        <td>@person.City.Country.CountryName</td>
                         @foreach (var lang in person.Languages)
                         {
                             <td>@lang.LanguageName</td>

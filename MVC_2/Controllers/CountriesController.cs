@@ -103,7 +103,6 @@ namespace MVC_2.Controllers
 
 
 
-
         [HttpPost]
         public IActionResult Search(string search)
         {
@@ -120,7 +119,6 @@ namespace MVC_2.Controllers
         }
 
 
-
         public IActionResult Delete(Guid id)
         {
 
@@ -135,24 +133,19 @@ namespace MVC_2.Controllers
 
         }
 
-
         public IActionResult DeleteCountry(Guid id)
         {
-            var country = _dbContext.Countries.FirstOrDefault(x => x.Id == id);
+   
+            var country = _dbContext.Countries.Include(country => country.Cities).FirstOrDefault(country => country.Id == id);
 
-          //  var country = _dbContext.Countries.Include(c => c.Cities).FirstOrDefault(c => c.Id == id); 
+            List<City> citiesList = country.Cities.ToList();
 
-            List<City> citiesByCountry = _dbContext.Cities.Include(city => city.Country).Where(city => city.CountryId == id).ToList();
-
-            List <City> list = country.Cities.ToList();
-
-            if (list != null)
+            if (citiesList != null)
             {
-                foreach (var city in list)
+                foreach (var city in citiesList)
                 {
-                    city.CityName = city.CityName;
-                    city.CountryId = null;
-                    _dbContext.Cities.Update(city);
+          
+                    _dbContext.Cities.Remove(city);
                     _dbContext.SaveChanges();
                 }
             }
@@ -163,7 +156,6 @@ namespace MVC_2.Controllers
 
             return RedirectToAction("Countries");
         }
-
 
     }
 }

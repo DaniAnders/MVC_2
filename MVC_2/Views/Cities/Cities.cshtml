@@ -34,15 +34,7 @@
                     <tr>
                         <td>@city.Id</td>
                         <td> @city.CityName</td>
-                        @if (city.CountryId != null)
-                        {
-                            <td>@city.Country.CountryName</td>
-                        }
-                        else
-                        {
-                            <td>Null</td>
-                        }
-                      
+                        <td>@city.Country.CountryName</td>
                         <td>
                             <a asp-action="Edit" asp-route-id="@city.Id">Edit</a>
                         </td>
