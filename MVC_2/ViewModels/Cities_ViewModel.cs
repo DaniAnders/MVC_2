@@ -9,13 +9,13 @@ namespace MVC_2.ViewModels
     public class Cities_ViewModel
     {
 
-        public CityViewModel CityViewModel { get; set; }
-        public City City { get; set; }
+        public CityViewModel CityViewModel { get; set; } = new CityViewModel();
+        public City City { get; set; } = new City();
         public List<City> Cities { get; set; }
         public List<SelectListItem> CountriesList { get; set; }
 
-        public string Message { get; set; }
-        public List<Person> PeopleByCity { get; set; }
+        public string Message { get; set; } = "";
+        public List<Person> PeopleByCity { get; set; } = new List<Person>();
 
       
         public Cities_ViewModel()

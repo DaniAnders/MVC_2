@@ -5,7 +5,7 @@ namespace MVC_2.Models
 {
     public class Game
     {
-        public static string Result { get; set; }
+        public static string? Result { get; set; }
         public static int Attempts { get; set; }
         public static int RandomNumber { get; set; }
         public static bool Win { get; set; }

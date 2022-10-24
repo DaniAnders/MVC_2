@@ -141,6 +141,7 @@ namespace MVC_2.Controllers
 
             var country = _dbContext.Countries.Include(country => country.Cities).FirstOrDefault(country => country.Id == id);
 
+
             List<City> citiesList = country.Cities.ToList();
 
 

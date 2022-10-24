@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <None Remove="Controllers\" />
-    <None Remove="TextFiles\" />
     <None Remove="Models\" />
     <None Remove="Views\" />
     <None Remove="Views\Home\" />
@@ -30,11 +29,12 @@
     <None Remove="Views\Languages\" />
     <None Remove="Microsoft.AspNetCore.Identity.EntityFrameworkCore" />
     <None Remove="Microsoft.AspNetCore.Identity.UI" />
+    <None Remove="Swashbuckle.AspNetCore" />
+    <None Remove="Services\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
     <Folder Include="wwwroot\" />
-    <Folder Include="TextFiles\" />
     <Folder Include="Models\" />
     <Folder Include="Views\" />
     <Folder Include="Views\Home\" />
@@ -47,6 +47,7 @@
     <Folder Include="Views\Ajax\" />
     <Folder Include="Views\Cities\" />
     <Folder Include="Views\Languages\" />
+    <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />
@@ -69,5 +70,6 @@
     <PackageReference Include="NuGet.PackageManagement" Version="6.3.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.8" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.8" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 </Project>

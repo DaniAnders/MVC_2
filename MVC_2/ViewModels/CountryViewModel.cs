@@ -11,7 +11,7 @@ namespace MVC_2.ViewModels
 
         [Required(ErrorMessage = "Country name is required")]
         [Display(Name = "Country name:")]
-        public string CountryName { get; set; }
+        public string CountryName { get; set; } = "";
 
 
         public CountryViewModel()

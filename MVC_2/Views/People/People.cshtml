@@ -6,7 +6,7 @@
     <h4>@Model.Description</h4>
 </div>
 
-<p> <a href="/People/Create">Add a new user</a> </p>
+<p> <a class="btn btn-success" href="/People/Create">Add a new user</a> </p>
 
 <div>
     <form asp-controller="People" asp-action="Search" method="post">
@@ -50,10 +50,11 @@
                         }
 
                         <td>
-                            <a asp-action="Edit" asp-route-id="@person.Id">Edit</a>
+                            <a class="btn btn-primary" asp-action="Edit" asp-route-id="@person.Id">Edit</a>
                         </td>
                         <td>
-                            <a asp-action="Delete" asp-route-id="@person.Id">Delete</a>
+                            <a class="btn btn-danger" asp-action="Delete" asp-route-id="@person.Id">Delete</a>
+                   
                         </td>
                     </tr>
 

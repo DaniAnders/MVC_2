@@ -12,7 +12,7 @@
 </div>
 
 <div>
-    <p> <a href="/Cities/Add">Add City</a> </p>
+    <p> <a class="btn btn-success" href="/Cities/Add">Add City</a> </p>
 </div>
 
 <div>
@@ -36,10 +36,10 @@
                         <td> @city.CityName</td>
                         <td>@city.Country.CountryName</td>
                         <td>
-                            <a asp-action="Edit" asp-route-id="@city.Id">Edit</a>
+                            <a class="btn btn-primary" asp-action="Edit" asp-route-id="@city.Id">Edit</a>
                         </td>
                         <td>
-                            <a asp-action="Delete" asp-route-id="@city.Id">Delete</a>
+                            <a class="btn btn-danger" asp-action="Delete" asp-route-id="@city.Id">Delete</a>
                         </td>
                     </tr>
 

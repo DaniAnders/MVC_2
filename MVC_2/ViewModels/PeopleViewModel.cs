@@ -9,18 +9,18 @@ namespace MVC_2.ViewModels
     public class PeopleViewModel
     {
 
-        public string Title { get; set; }
-        public string Description { get; set; }
-        public string Message { get; set; }
-        public Person Person { get; set; }
-        public CreatePersonViewModel CreatePerson { get; set; }
+        public string Title { get; set; } = "";
+        public string Description { get; set; } = "";
+        public string Message { get; set; } = "";
+        public Person Person { get; set; } = new Person();
+        public CreatePersonViewModel CreatePerson { get; set; } = new CreatePersonViewModel();
 
 
         public List<Person> People { get; set; }
         public List<SelectListItem> CitiesList { get; set; }
         public List<SelectListItem> LanguagesList { get; set; }
 
-        public Guid[] SelectedLanguages { get; set; }
+        public Guid[] SelectedLanguages { get; set; } 
 
 
 

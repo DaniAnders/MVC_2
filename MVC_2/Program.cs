@@ -2,8 +2,15 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MVC_2.Data;
 using MVC_2.Models;
+using MVC_2.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+
 
 /* services mvc */
 builder.Services.AddMvc();
@@ -19,6 +26,13 @@ builder.Services.AddDbContext<ApplicationDBContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 
 });
+
+
+builder.Services.AddScoped<IPersonService, PeopleServices>();
+builder.Services.AddScoped<ILanguageService, LanguagesServices>();
+builder.Services.AddScoped<ICityService, CitiesServices>();
+builder.Services.AddScoped<ICountryService, CountriesServices>();
+
 
 
 builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
@@ -40,6 +54,23 @@ builder.Services.AddRazorPages();
 
 
 var app = builder.Build();
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+    });
+}
+
+app.UseCors(options =>
+{
+    options.WithOrigins("http://localhost:3000");
+    options.AllowAnyMethod();
+    options.AllowAnyHeader();
+
+});
 
 app.UseSession();
 app.UseStaticFiles();

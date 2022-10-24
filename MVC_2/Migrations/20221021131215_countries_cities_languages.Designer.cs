@@ -4,6 +4,7 @@ using MVC_2.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MVC_2.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    partial class ApplicationDBContextModelSnapshot : ModelSnapshot
+    [Migration("20221021131215_countries_cities_languages")]
+    partial class countries_cities_languages
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -35,48 +37,6 @@ namespace MVC_2.Migrations
                     b.HasIndex("PeopleId");
 
                     b.ToTable("LanguagePerson");
-
-                    b.HasData(
-                        new
-                        {
-                            LanguagesId = new Guid("002dd5e2-73f3-4a29-b20d-2c157a314c95"),
-                            PeopleId = new Guid("4391eaf7-872b-4473-952a-a059c70327aa")
-                        },
-                        new
-                        {
-                            LanguagesId = new Guid("b62276b9-7d80-4cac-8a25-0b88740467b2"),
-                            PeopleId = new Guid("4391eaf7-872b-4473-952a-a059c70327aa")
-                        },
-                        new
-                        {
-                            LanguagesId = new Guid("b62276b9-7d80-4cac-8a25-0b88740467b2"),
-                            PeopleId = new Guid("4004a4d0-3c70-4564-b538-4d61abcbd802")
-                        },
-                        new
-                        {
-                            LanguagesId = new Guid("002dd5e2-73f3-4a29-b20d-2c157a314c95"),
-                            PeopleId = new Guid("a44e066c-449a-4b39-8203-15d683e99722")
-                        },
-                        new
-                        {
-                            LanguagesId = new Guid("002dd5e2-73f3-4a29-b20d-2c157a314c95"),
-                            PeopleId = new Guid("ea8f0587-d8b6-4b0b-9d5f-dbab879bb1ec")
-                        },
-                        new
-                        {
-                            LanguagesId = new Guid("60ba5dbc-91ba-47f8-b049-dffef8d950f2"),
-                            PeopleId = new Guid("b9e780fb-adad-48d4-807c-0074d4d88ff8")
-                        },
-                        new
-                        {
-                            LanguagesId = new Guid("acb8694c-4a1e-4245-aa05-72c08c80e594"),
-                            PeopleId = new Guid("b9e780fb-adad-48d4-807c-0074d4d88ff8")
-                        },
-                        new
-                        {
-                            LanguagesId = new Guid("8eb79ef6-9e40-4eef-815f-c1ade9b75ba8"),
-                            PeopleId = new Guid("088394bb-1b55-402f-99b8-b2b37587b11e")
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -318,93 +278,93 @@ namespace MVC_2.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("d5f639bf-01d0-4e4d-8aa3-1948a459bc20"),
+                            Id = new Guid("95174af2-f124-4253-b976-f26c5b4f32dd"),
                             CityName = "Porto",
-                            CountryId = new Guid("06904fc4-0af8-414c-a4c6-7ea399796d18")
+                            CountryId = new Guid("263148f6-5417-4328-b45b-8c391e7cb105")
                         },
                         new
                         {
-                            Id = new Guid("e5e93541-9afc-49d6-9f5c-d9ac1f2356c2"),
+                            Id = new Guid("b5c6b95e-956e-40ce-88d4-6f3f9e00341c"),
                             CityName = "Braga",
-                            CountryId = new Guid("06904fc4-0af8-414c-a4c6-7ea399796d18")
+                            CountryId = new Guid("263148f6-5417-4328-b45b-8c391e7cb105")
                         },
                         new
                         {
-                            Id = new Guid("b2c77e51-6625-4e68-a51b-5daf4341bf9d"),
+                            Id = new Guid("0e1f92dd-da6f-4155-b910-3ac8e551ce32"),
                             CityName = "Guimaraes",
-                            CountryId = new Guid("06904fc4-0af8-414c-a4c6-7ea399796d18")
+                            CountryId = new Guid("263148f6-5417-4328-b45b-8c391e7cb105")
                         },
                         new
                         {
-                            Id = new Guid("fc4f5eac-6ece-461c-9928-21484aa5a86c"),
+                            Id = new Guid("c481b64e-6c7e-47f5-905e-b37c76ef93b5"),
                             CityName = "Bergen",
-                            CountryId = new Guid("c5dcb563-8019-4ae2-8df4-9adba26a0b71")
+                            CountryId = new Guid("60d18e10-566d-425b-b420-d1bef60a1e6e")
                         },
                         new
                         {
-                            Id = new Guid("5830a1ed-6e86-422a-96c6-58bf7bdad159"),
+                            Id = new Guid("eb30af85-9f6c-4b2f-8edf-18fbfb517f29"),
                             CityName = "Oslo",
-                            CountryId = new Guid("c5dcb563-8019-4ae2-8df4-9adba26a0b71")
+                            CountryId = new Guid("60d18e10-566d-425b-b420-d1bef60a1e6e")
                         },
                         new
                         {
-                            Id = new Guid("12c21046-fc43-4079-a6b2-96cc86d110b8"),
+                            Id = new Guid("4ad19b6a-a864-4343-bcaa-558b72e0e164"),
                             CityName = "Trondheim",
-                            CountryId = new Guid("c5dcb563-8019-4ae2-8df4-9adba26a0b71")
+                            CountryId = new Guid("60d18e10-566d-425b-b420-d1bef60a1e6e")
                         },
                         new
                         {
-                            Id = new Guid("77ff1dc4-64ac-4cea-a318-c33c28bfe2ff"),
+                            Id = new Guid("1141524b-01b0-4d00-920b-4ce5d9c1c424"),
                             CityName = "Copenhagen",
-                            CountryId = new Guid("72add6b5-4736-4305-9942-67d80c37fe3b")
+                            CountryId = new Guid("131ac8a6-49f1-4717-be0a-262d9ca4ac0c")
                         },
                         new
                         {
-                            Id = new Guid("1c7f3184-7bb7-4fed-912b-9594ebd5447e"),
+                            Id = new Guid("562e2dc0-13b8-4626-8a69-89c43f8e3aa7"),
                             CityName = "Odense ",
-                            CountryId = new Guid("72add6b5-4736-4305-9942-67d80c37fe3b")
+                            CountryId = new Guid("131ac8a6-49f1-4717-be0a-262d9ca4ac0c")
                         },
                         new
                         {
-                            Id = new Guid("d38cf42b-998f-4606-b242-1241d8469019"),
+                            Id = new Guid("2f739800-df32-40ac-a7a4-a1aa348c8377"),
                             CityName = "Aarhus",
-                            CountryId = new Guid("72add6b5-4736-4305-9942-67d80c37fe3b")
+                            CountryId = new Guid("131ac8a6-49f1-4717-be0a-262d9ca4ac0c")
                         },
                         new
                         {
-                            Id = new Guid("b9e0625b-48df-4cc9-9bdf-cdf038680f22"),
+                            Id = new Guid("f7ea6182-727f-4833-8c9e-9f3d02aa4ee0"),
                             CityName = "Paris",
-                            CountryId = new Guid("53df159b-0340-41bd-a6c1-08932850d180")
+                            CountryId = new Guid("38c35795-4019-4e84-8ee9-95b2adda6b3b")
                         },
                         new
                         {
-                            Id = new Guid("2226a03b-0631-4d88-b75c-f78764a07905"),
+                            Id = new Guid("a18f10e6-fe37-4d7f-b808-31a60635a535"),
                             CityName = "Annecy",
-                            CountryId = new Guid("53df159b-0340-41bd-a6c1-08932850d180")
+                            CountryId = new Guid("38c35795-4019-4e84-8ee9-95b2adda6b3b")
                         },
                         new
                         {
-                            Id = new Guid("d3712e13-eba6-4a22-a7bd-7a884893fb90"),
+                            Id = new Guid("a6e0219a-6fd8-467f-b623-bbcda7a1b16c"),
                             CityName = "Dijon",
-                            CountryId = new Guid("53df159b-0340-41bd-a6c1-08932850d180")
+                            CountryId = new Guid("38c35795-4019-4e84-8ee9-95b2adda6b3b")
                         },
                         new
                         {
-                            Id = new Guid("00a14419-8b6c-4efc-b613-dff0ed24ffc0"),
+                            Id = new Guid("a484d232-3e53-491e-8037-4a2f32154e53"),
                             CityName = "Florence",
-                            CountryId = new Guid("19151fc4-66d6-43f1-a4dd-7f4e621a25bd")
+                            CountryId = new Guid("505b9769-c390-438e-9079-71de58b38b94")
                         },
                         new
                         {
-                            Id = new Guid("8df200c6-eb46-4e38-9625-65d955012934"),
+                            Id = new Guid("1851eac0-b554-40f9-a57d-3fb1dddb72c8"),
                             CityName = "Rome",
-                            CountryId = new Guid("19151fc4-66d6-43f1-a4dd-7f4e621a25bd")
+                            CountryId = new Guid("505b9769-c390-438e-9079-71de58b38b94")
                         },
                         new
                         {
-                            Id = new Guid("5c74cf57-0db6-4a5c-a14e-c8103e1e17be"),
+                            Id = new Guid("42592ce8-c7ef-4f92-b4ae-b55f9448e8d8"),
                             CityName = "Venice",
-                            CountryId = new Guid("19151fc4-66d6-43f1-a4dd-7f4e621a25bd")
+                            CountryId = new Guid("505b9769-c390-438e-9079-71de58b38b94")
                         });
                 });
 
@@ -425,27 +385,27 @@ namespace MVC_2.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("06904fc4-0af8-414c-a4c6-7ea399796d18"),
+                            Id = new Guid("263148f6-5417-4328-b45b-8c391e7cb105"),
                             CountryName = "Portugal"
                         },
                         new
                         {
-                            Id = new Guid("c5dcb563-8019-4ae2-8df4-9adba26a0b71"),
+                            Id = new Guid("60d18e10-566d-425b-b420-d1bef60a1e6e"),
                             CountryName = "Norway"
                         },
                         new
                         {
-                            Id = new Guid("72add6b5-4736-4305-9942-67d80c37fe3b"),
+                            Id = new Guid("131ac8a6-49f1-4717-be0a-262d9ca4ac0c"),
                             CountryName = "Denmark"
                         },
                         new
                         {
-                            Id = new Guid("53df159b-0340-41bd-a6c1-08932850d180"),
+                            Id = new Guid("38c35795-4019-4e84-8ee9-95b2adda6b3b"),
                             CountryName = "France"
                         },
                         new
                         {
-                            Id = new Guid("19151fc4-66d6-43f1-a4dd-7f4e621a25bd"),
+                            Id = new Guid("505b9769-c390-438e-9079-71de58b38b94"),
                             CountryName = "Italy"
                         });
                 });
@@ -467,32 +427,32 @@ namespace MVC_2.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("002dd5e2-73f3-4a29-b20d-2c157a314c95"),
+                            Id = new Guid("7740c113-82e7-44ef-ae59-74dd919bb486"),
                             LanguageName = "English"
                         },
                         new
                         {
-                            Id = new Guid("60ba5dbc-91ba-47f8-b049-dffef8d950f2"),
+                            Id = new Guid("714e510a-26e0-476c-bc3b-13d28e9f66db"),
                             LanguageName = "Swedish"
                         },
                         new
                         {
-                            Id = new Guid("81379b8f-0663-4e12-9a0e-1ba2a7677d32"),
+                            Id = new Guid("9bf292d4-c217-4320-8822-0af22a2826a3"),
                             LanguageName = "Italian"
                         },
                         new
                         {
-                            Id = new Guid("acb8694c-4a1e-4245-aa05-72c08c80e594"),
+                            Id = new Guid("5b8c0ddb-f7fd-4838-aec1-1e3a7227d45e"),
                             LanguageName = "Japanese"
                         },
                         new
                         {
-                            Id = new Guid("b62276b9-7d80-4cac-8a25-0b88740467b2"),
+                            Id = new Guid("ea641806-9e02-4823-9c52-fe75da5b94a8"),
                             LanguageName = "Portuguese"
                         },
                         new
                         {
-                            Id = new Guid("8eb79ef6-9e40-4eef-815f-c1ade9b75ba8"),
+                            Id = new Guid("81f18c56-062c-4e11-92eb-0f744ffb6e46"),
                             LanguageName = "French"
                         });
                 });
@@ -527,62 +487,6 @@ namespace MVC_2.Migrations
                     b.HasIndex("CityId");
 
                     b.ToTable("People");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("4391eaf7-872b-4473-952a-a059c70327aa"),
-                            CityId = new Guid("d5f639bf-01d0-4e4d-8aa3-1948a459bc20"),
-                            FirstName = "Antonio",
-                            LastName = "Pereira",
-                            Phone = "00351786533",
-                            SSN = "801009"
-                        },
-                        new
-                        {
-                            Id = new Guid("4004a4d0-3c70-4564-b538-4d61abcbd802"),
-                            CityId = new Guid("e5e93541-9afc-49d6-9f5c-d9ac1f2356c2"),
-                            FirstName = "Manuel",
-                            LastName = "Carvalho",
-                            Phone = "00351786533",
-                            SSN = "851209"
-                        },
-                        new
-                        {
-                            Id = new Guid("a44e066c-449a-4b39-8203-15d683e99722"),
-                            CityId = new Guid("fc4f5eac-6ece-461c-9928-21484aa5a86c"),
-                            FirstName = "Petter",
-                            LastName = "Bjorge",
-                            Phone = "00471786533",
-                            SSN = "820413"
-                        },
-                        new
-                        {
-                            Id = new Guid("ea8f0587-d8b6-4b0b-9d5f-dbab879bb1ec"),
-                            CityId = new Guid("5830a1ed-6e86-422a-96c6-58bf7bdad159"),
-                            FirstName = "Maja",
-                            LastName = "Nilsen",
-                            Phone = "0047786533",
-                            SSN = "861211"
-                        },
-                        new
-                        {
-                            Id = new Guid("b9e780fb-adad-48d4-807c-0074d4d88ff8"),
-                            CityId = new Guid("77ff1dc4-64ac-4cea-a318-c33c28bfe2ff"),
-                            FirstName = "Elise",
-                            LastName = "Jensen",
-                            Phone = "00451786533",
-                            SSN = "700511"
-                        },
-                        new
-                        {
-                            Id = new Guid("088394bb-1b55-402f-99b8-b2b37587b11e"),
-                            CityId = new Guid("b9e0625b-48df-4cc9-9bdf-cdf038680f22"),
-                            FirstName = "Elisabeth",
-                            LastName = "Garnier",
-                            Phone = "00331786533",
-                            SSN = "750912"
-                        });
                 });
 
             modelBuilder.Entity("LanguagePerson", b =>

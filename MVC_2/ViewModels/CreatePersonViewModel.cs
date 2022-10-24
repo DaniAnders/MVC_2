@@ -8,26 +8,26 @@ namespace MVC_2.ViewModels
     {
         [Required(ErrorMessage = "SSN is required")]
         [Display(Name = "SSN:")]
-        public string SSN { get; set; }
+        public string SSN { get; set; } = "";
 
 
         [Required(ErrorMessage = "First name is required")]
         [Display(Name = "First name:")]
-        public string FirstName { get; set; }
+        public string FirstName { get; set; } = "";
 
 
         [Required(ErrorMessage = "Last name is required")]
         [Display(Name = "Last name:")]
-        public string LastName { get; set; }
+        public string LastName { get; set; } = "";
 
         [Required(ErrorMessage = "Phone number is required")]
         [StringLength(20)]
-        public string Phone { get; set; }
+        public string Phone { get; set; } = "";
 
 
         //[Required(ErrorMessage = "City is required")]
         [Display(Name = "City")]
-        public Guid CityId { get; set; }
+        public Guid CityId { get; set; } = new Guid();
 
 
 

@@ -11,11 +11,11 @@ namespace MVC_2.ViewModels
 
         [Required(ErrorMessage = "You must enter the city name")]
         [Display(Name = "City name:")]
-        public string CityName { get; set; }
+        public string CityName { get; set; } = "";
 
 
         [Display(Name = "Country:")]
-        public Guid CountryId { get; set; }
+        public Guid CountryId { get; set; } = new Guid();
 
 
 
